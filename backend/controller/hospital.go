@@ -1,14 +1,13 @@
 package controller
- 
+
 import (
-	"github.com/TheerapatSA/projectSE/entity"
+	"github.com/Kaweethorn/team12/entity"
 
 	"github.com/gin-gonic/gin"
 
 	"net/http"
-
-	"github.com/asaskevich/govalidator"
 )
+
 // POST /staffs
 func CreateHospital(c *gin.Context) {
 	var hospitalnet entity.Hospitalnet
@@ -18,11 +17,6 @@ func CreateHospital(c *gin.Context) {
 	var province entity.Province
 
 	if err := c.ShouldBindJSON(&hospitalnet); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	if _, err := govalidator.ValidateStruct(hospitalnet); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -48,17 +42,16 @@ func CreateHospital(c *gin.Context) {
 	}
 
 	rif := entity.Hospitalnet{
-		Employee:      employee,
-		Status:     status,
-		Genre:		genre,
-		Province:	province,
-		Name:		hospitalnet.Name,
-		Contract:	hospitalnet.Contract,
-		Adddate:	hospitalnet.Adddate,
-		Address:	hospitalnet.Address,
+		Employee: employee,
+		Status:   status,
+		Genre:    genre,
+		Province: province,
+		Name:     hospitalnet.Name,
+		Contract: hospitalnet.Contract,
+		Adddate:  hospitalnet.Adddate,
+		Address:  hospitalnet.Address,
 	}
 
- 
 	if err := entity.DB().Create(&rif).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
