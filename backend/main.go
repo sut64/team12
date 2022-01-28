@@ -43,6 +43,15 @@ func main() {
 			protected.POST("/invoice_payments", controller.CreateInvoicePayment)
 			protected.PATCH("/invoice_payments", controller.UpdateInvoicePayment)
 			protected.DELETE("/invoice_payments/:id", controller.DeleteInvoicePayment)
+
+
+			// BuyInsurance Routes
+			protected.GET("/buyinsurances", controller.Listbuyinsurances)
+			protected.GET("/buyinsurance/:id", controller.Getbuyinsurance)
+			protected.POST("/buyinsurances", controller.Createbuyinsurance)
+			protected.PATCH("/buyinsurances", controller.Updatebuyinsurance)
+			protected.DELETE("/buyinsurances/:id", controller.Deletebuyinsurance)
+
 		}
 	}
 

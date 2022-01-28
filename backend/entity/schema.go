@@ -18,8 +18,10 @@ type Customer struct {
 	PolicyNumber    string           `gorm:"uniqueIndex"`
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
 
+
 	BuyInsurance []Buyinsurance `gorm:"foreignKey:CustomerID"`
 	Paybacks     []Payback      `gorm:"foreignKey:CustomerID"`
+
 }
 type Status struct {
 	gorm.Model
@@ -49,10 +51,14 @@ type Employee struct {
 	Email           string `gorm:"uniqueIndex"`
 	Password        string
 	Hospitalnet     []Hospitalnet    `gorm:"foreignKey:EmployeeID"`
+
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:EmployeeID"`
 
 	BuyInsurance []Buyinsurance `gorm:"foreignKey:EmployeeID"`
 	Paybacks     []Payback      `gorm:"foreignKey:EmployeeID"`
+
+	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
+
 }
 type InvoicePayment struct {
 	gorm.Model
@@ -91,6 +97,7 @@ type Hospitalnet struct {
 	Genre   Genre `gorm:"references:id"`
 }
 
+
 type Buyinsurance struct {
 	gorm.Model
 	Consent      bool
@@ -120,3 +127,4 @@ type Payback struct {
 	BankID *uint
 	Bank   Bank `gorm:"references:id"`
 }
+
