@@ -17,10 +17,6 @@ type Customer struct {
 	IdNumber        string           `gorm:"uniqueIndex"`
 	PolicyNumber    string           `gorm:"uniqueIndex"`
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
-
-	BuyInsurance    []Buyinsurance   `gorm:"foreignKey:CustomerID"`
-=======
-
 }
 type Status struct {
 	gorm.Model
@@ -45,10 +41,6 @@ type Employee struct {
 	Password        string
 	Hospitalnet     []Hospitalnet    `gorm:"foreignKey:EmployeeID"`
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
-
-	BuyInsurance    []Buyinsurance   `gorm:"foreignKey:EmployeeID"`
-=======
-
 }
 type InvoicePayment struct {
 	gorm.Model
@@ -56,17 +48,9 @@ type InvoicePayment struct {
 	InvoiceNumber string
 	PaymentAmount int
 
-
 	// InvoiceID ทำหน้าที่เป็น FK
 	InvoiceID *uint
 	Invoice   Invoice
-
-=======
-
-	// InvoiceID ทำหน้าที่เป็น FK
-	InvoiceID *uint
-	Invoice   Invoice
-
 
 	// CustomerID ทำหน้าที่เป็น FK
 	CustomerID *uint
@@ -94,21 +78,3 @@ type Hospitalnet struct {
 	GenreID *uint
 	Genre   Genre `gorm:"references:id"`
 }
-
-
-type Buyinsurance struct {
-	gorm.Model
-	Consent      bool
-	HealthInfrom string
-	Adddate      time.Time
-
-	InsuranceID        *uint
-	InsuranceConverage InsuranceConverage `gorm:"references:id"`
-
-	EmployeeID *uint
-	Employee   Employee `gorm:"references:id"`
-
-	CustomerID *uint
-	Customer   Customer `gorm:"references:id"`
-}
-
