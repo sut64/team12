@@ -8,8 +8,8 @@ import (
 	"net/http"
 )
 
-// POST /staffs
-func CreateHospital(c *gin.Context) {
+// POST /hospitalnets
+func CreateHospitalnet(c *gin.Context) {
 	var hospitalnet entity.Hospitalnet
 	var employee entity.Employee
 	var status entity.Status
@@ -59,9 +59,9 @@ func CreateHospital(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": rif})
 }
 
-//GET ("/hospital/id")
+//GET ("/hospitalnet/id")
 //GET by id
-func GetHospital(c *gin.Context) {
+func GetHospitalnet(c *gin.Context) {
 
 	var hospital entity.Hospitalnet
 
@@ -72,8 +72,8 @@ func GetHospital(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": hospital})
 }
 
-//GET ("/hospital")
-func ListHospital(c *gin.Context) {
+//GET ("/hospitalnets")
+func ListHospitalnet(c *gin.Context) {
 
 	var hospitals []entity.Hospitalnet
 
@@ -84,9 +84,9 @@ func ListHospital(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": hospitals})
 }
 
-// DELETE ("/hospital/id")
+// DELETE ("/hospitalnet/id")
 // DELETE by id
-func DeleteHospital(c *gin.Context) {
+func DeleteHospitalnet(c *gin.Context) {
 
 	id := c.Param("id")
 
@@ -97,8 +97,8 @@ func DeleteHospital(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": id})
 }
 
-// PATCH ("/hospital")
-func UpdateHospital(c *gin.Context) {
+// PATCH ("/hospitalnet")
+func UpdateHospitalnet(c *gin.Context) {
 
 	var hospital entity.Hospitalnet
 
