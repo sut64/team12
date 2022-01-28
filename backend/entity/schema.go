@@ -2,24 +2,36 @@ package entity
 
 import (
 	"time"
+
 	"gorm.io/gorm"
-	"github.com/asaskevich/govalidator"
-	
 )
-type Status struct {
+
+type Invoice struct {
+	gorm.Model
+	PaymentType     string
+	InvoicePayments []InvoicePayment `gorm:"foreignKey:InvoiceID"`
+}
+type Customer struct {
 	gorm.Model
 	Name            string
-	Hospitalnet		[]Hospitalnet `gorm:"foreignKey:StatusID"`
+	IdNumber        string           `gorm:"uniqueIndex"`
+	PolicyNumber    string           `gorm:"uniqueIndex"`
+	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
+}
+type Status struct {
+	gorm.Model
+	Name        string
+	Hospitalnet []Hospitalnet `gorm:"foreignKey:StatusID"`
 }
 type Province struct {
 	gorm.Model
-	Name            string
-	Hospitalnet		[]Hospitalnet `gorm:"foreignKey:ProvinceID"`
+	Name        string
+	Hospitalnet []Hospitalnet `gorm:"foreignKey:ProvinceID"`
 }
 type Genre struct {
 	gorm.Model
-	Name            string
-	Hospitalnet		[]Hospitalnet `gorm:"foreignKey:GenreID"`
+	Name        string
+	Hospitalnet []Hospitalnet `gorm:"foreignKey:GenreID"`
 }
 
 type Employee struct {
@@ -27,38 +39,42 @@ type Employee struct {
 	Name            string
 	Email           string `gorm:"uniqueIndex"`
 	Password        string
-	Hospitalnet		[]Hospitalnet`gorm:"goreignKey:EmployeeID"`
+	Hospitalnet     []Hospitalnet    `gorm:"foreignKey:EmployeeID"`
+	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
 }
+type InvoicePayment struct {
+	gorm.Model
+	PaymentTime   time.Time
+	InvoiceNumber string
+	PaymentAmount int
 
+	// InvoiceID ทำหน้าที่เป็น FK
+	InvoiceID *uint
+	Invoice   Invoice
+
+	// CustomerID ทำหน้าที่เป็น FK
+	CustomerID *uint
+	Customer   Customer
+	// EmployeeID ทำหน้าที่เป็น FK
+	EmployeeID *uint
+	Employee   Employee
+}
 type Hospitalnet struct {
 	gorm.Model
-	Name            string
-	Contract		float64 `valid:"IsPositive"`
-	Address			string `valid:"minstringlength(4)"`//valid โดยเช็คว่ามีstring ไม่น้อยกว่า4 ตัว
-	Adddate			time.Time `valid:"notpast"`
+	Name     string
+	Contract float64
+	Address  string
+	Adddate  time.Time
 
-	EmployeeID		*uint
-	Employee		Employee `gorm:references:id"`
+	EmployeeID *uint
+	Employee   Employee `gorm:"references:id"`
 
-	StatusID		*uint
-	Status			Status `gorm:references:id"`
+	StatusID *uint
+	Status   Status `gorm:"references:id"`
 
-	ProvinceID		*uint
-	Province		Province `gorm:references:id"`
+	ProvinceID *uint
+	Province   Province `gorm:"references:id"`
 
-	GenreID			*uint
-	Genre			Genre `gorm:references:id"`
-
-}
-
-func init() {
-	govalidator.CustomTypeTagMap.Set("IsPositive" , func(i interface{} , context interface{}) bool{
-		value := i.(float64)
-		return value >= 0
-	})
-
-	govalidator.CustomTypeTagMap.Set("notpast", func(i interface{} , context interface{}) bool{
-		t := i.(time.Time)
-		return t.After(time.Now())||t.Equal(time.Now())
-	})
+	GenreID *uint
+	Genre   Genre `gorm:"references:id"`
 }
