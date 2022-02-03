@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Kaweethorn/team12/controller"
-	"github.com/Kaweethorn/team12/entity"
-	"github.com/Kaweethorn/team12/middlewares"
+	"github.com/sut64/team12/controller"
+	"github.com/sut64/team12/entity"
+	"github.com/sut64/team12/middlewares"
 	"github.com/gin-gonic/gin"
 )
 
@@ -78,6 +78,34 @@ func main() {
 			protected.POST("/hospitalnets", controller.CreateProvince)
 			protected.PATCH("/hospitalnet", controller.UpdateProvince)
 			protected.DELETE("/hospitalnet/id", controller.DeleteProvince)
+
+			protected.GET("/protections", controller.ListProtections)
+			protected.GET("/protection/:id", controller.GetProtection)
+			protected.POST("/protections", controller.CreateProtection)
+			protected.PATCH("/protections", controller.UpdateProtection)
+			protected.DELETE("/protections/:id", controller.DeleteProtection)
+
+			// Package Routes
+			protected.GET("/packages", controller.ListPackages)
+			protected.GET("/package/:id", controller.GetPackage)
+			protected.POST("/packages", controller.CreatePackage)
+			protected.PATCH("/packages", controller.UpdatePackage)
+			protected.DELETE("/packages/:id", controller.DeletePackage)
+
+			// Totallist Routes
+			protected.GET("/totallists", controller.ListTotallists)
+			protected.GET("/totallist/:id", controller.GetTotallist)
+			protected.PATCH("/totallists", controller.UpdateTotallist)
+			protected.DELETE("/totallists/:id", controller.DeleteTotallist)
+
+
+			// InsuranceConverage Routes
+			protected.GET("/insuranceconverages", controller.ListInsuranceConverages)
+			protected.GET("/insuranceconverage/:id", controller.GetInsuranceConverage)
+			protected.PATCH("/insuranceconverages", controller.UpdateInsuranceConverage)
+			protected.DELETE("/insuranceconverages/:id", controller.DeleteInsuranceConverage)
+
+
 
 		}
 	}

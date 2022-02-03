@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Kaweethorn/team12/service"
+	"github.com/sut64/team12/service"
 	"github.com/gin-gonic/gin"
 )
 
