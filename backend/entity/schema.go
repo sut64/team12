@@ -161,4 +161,5 @@ type InsuranceConverage struct {
 
 	TotallistID *uint
 	Totallist   Totallist `gorm:"references:id"`
+
 }
