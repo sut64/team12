@@ -56,7 +56,7 @@ type Employee struct {
 
 	BuyInsurance []Buyinsurance `gorm:"foreignKey:EmployeeID"`
 	Paybacks     []Payback      `gorm:"foreignKey:EmployeeID"`
-
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:EmployeeID"`
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
 
 }
@@ -128,3 +128,37 @@ type Payback struct {
 	Bank   Bank `gorm:"references:id"`
 }
 
+type Protection struct {
+	gorm.Model
+	Protection_name               string
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:ProtectionID"`
+}
+type Package struct {
+	gorm.Model
+	Package_name               string
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:PackageID"`
+}
+type Totallist struct {
+	gorm.Model
+	Totallist_cost              string
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:TotallistID"`
+}
+
+type InsuranceConverage struct {
+	gorm.Model
+	Protectiontype string
+	Premium        uint
+	Datetime       time.Time
+
+	EmployeeID *uint
+	Employee   Employee `gorm:"references:id"`
+
+	ProtectionID *uint
+	Protection   Protection `gorm:"references:id"`
+
+	PackageID *uint
+	Package   Package `gorm:"references:id"`
+
+	TotallistID *uint
+	Totallist   Totallist `gorm:"references:id"`
+}

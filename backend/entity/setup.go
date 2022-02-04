@@ -1,6 +1,8 @@
 package entity
 
 import (
+	"time"
+
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -28,6 +30,10 @@ func SetupDatabase() {
 		&Invoice{},
 		&Customer{},
 		&InvoicePayment{},
+		&InsuranceConverage{},
+		&Package{},
+		&Protection{},
+		&Totallist{},
 	)
 
 	db = database
@@ -83,4 +89,62 @@ func SetupDatabase() {
 		PolicyNumber: "00000003",
 	}
 	db.Model(&Customer{}).Create(&f)
+	Protection1 := Protection{
+		Protection_name: "ประกันชีวิต",
+	}
+	db.Model(&Protection{}).Create(&Protection1)
+
+	Protection2 := Protection{
+		Protection_name: "ประกันสุขภาพ",
+	}
+	db.Model(&Protection{}).Create(&Protection2)
+
+	Protection3 := Protection{
+		Protection_name: "ประกันอุบัติเหตุ",
+	}
+	db.Model(&Protection{}).Create(&Protection3)
+
+	package1 := Package{
+		Package_name: "แพ็คเกจ 1",
+	}
+	db.Model(&Package{}).Create(&package1)
+	package2 := Package{
+		Package_name: "แพ็คเกจ 2",
+	}
+	db.Model(&Package{}).Create(&package2)
+	package3 := Package{
+		Package_name: "แพ็คเกจ 3",
+	}
+	db.Model(&Package{}).Create(&package3)
+
+	totallist1 := Totallist{
+		Totallist_cost: "1,000,000 ต่อปี",
+	}
+	db.Model(&Totallist{}).Create(&totallist1)
+
+	totallist2 := Totallist{
+		Totallist_cost: "1,500,000 ต่อปี",
+	}
+	db.Model(&Totallist{}).Create(&totallist2)
+
+	// InsuranceConverage 1
+	db.Model(&InsuranceConverage{}).Create(&InsuranceConverage{
+		Premium:        10000,
+		Protectiontype: "ผู้ป่วยนอก",
+		Datetime:       time.Now(),
+		Employee:       a,
+		Protection:     Protection1,
+		Package:        package1,
+		Totallist:      totallist1,
+	})
+	// InsuranceConverage2
+	db.Model(&InsuranceConverage{}).Create(&InsuranceConverage{
+		Premium:        15000,
+		Protectiontype: "ผู้ป่วยใน",
+		Datetime:       time.Now(),
+		Employee:       b,
+		Protection:     Protection2,
+		Package:        package2,
+		Totallist:      totallist2,
+	})
 }
