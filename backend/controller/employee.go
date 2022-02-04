@@ -3,7 +3,7 @@ package controller
 import (
 	"net/http"
 
-	"github.com/Kaweethorn/team12/entity"
+	"github.com/sut64/team12/entity"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 )
