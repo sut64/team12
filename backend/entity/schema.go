@@ -3,6 +3,7 @@ package entity
 import (
 	"time"
 
+	"github.com/asaskevich/govalidator"
 	"gorm.io/gorm"
 )
 
@@ -17,11 +18,8 @@ type Customer struct {
 	IdNumber        string           `gorm:"uniqueIndex"`
 	PolicyNumber    string           `gorm:"uniqueIndex"`
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
-
-
-	BuyInsurance []Buyinsurance `gorm:"foreignKey:CustomerID"`
-	Paybacks     []Payback      `gorm:"foreignKey:CustomerID"`
-
+	BuyInsurance    []Buyinsurance   `gorm:"foreignKey:CustomerID"`
+	Paybacks        []Payback        `gorm:"foreignKey:CustomerID"`
 }
 type Status struct {
 	gorm.Model
@@ -47,35 +45,31 @@ type Bank struct {
 
 type Employee struct {
 	gorm.Model
-	Name            string
-	Email           string `gorm:"uniqueIndex"`
-	Password        string
-	Hospitalnet     []Hospitalnet    `gorm:"foreignKey:EmployeeID"`
-
-	InvoicePayments []InvoicePayment `gorm:"foreignKey:EmployeeID"`
-
-	BuyInsurance []Buyinsurance `gorm:"foreignKey:EmployeeID"`
-	Paybacks     []Payback      `gorm:"foreignKey:EmployeeID"`
+	Name               string
+	Email              string `gorm:"uniqueIndex"`
+	Password           string
+	Hospitalnet        []Hospitalnet        `gorm:"foreignKey:EmployeeID"`
+	InvoicePayments    []InvoicePayment     `gorm:"foreignKey:EmployeeID"`
+	BuyInsurance       []Buyinsurance       `gorm:"foreignKey:EmployeeID"`
+	Paybacks           []Payback            `gorm:"foreignKey:EmployeeID"`
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:EmployeeID"`
-	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
-
 }
 type InvoicePayment struct {
 	gorm.Model
-	PaymentTime   time.Time
-	InvoiceNumber string
-	PaymentAmount int
+	PaymentTime   time.Time `valid:"notpast~PaymentTime must not be in the past"`
+	InvoiceNumber string    `valid:"matches(^[i]\\d{3}$)~InvoiceNumber is not correct"`
+	PaymentAmount int       `valid:"IsPositive~PaymentAmount must be positive"`
 
 	// InvoiceID ทำหน้าที่เป็น FK
 	InvoiceID *uint
-	Invoice   Invoice
+	Invoice   Invoice `gorm:"references:id" valid:"-"`
 
 	// CustomerID ทำหน้าที่เป็น FK
 	CustomerID *uint
-	Customer   Customer
+	Customer   Customer `gorm:"references:id" valid:"-"`
 	// EmployeeID ทำหน้าที่เป็น FK
 	EmployeeID *uint
-	Employee   Employee
+	Employee   Employee `gorm:"references:id" valid:"-"`
 }
 type Hospitalnet struct {
 	gorm.Model
@@ -96,7 +90,6 @@ type Hospitalnet struct {
 	GenreID *uint
 	Genre   Genre `gorm:"references:id"`
 }
-
 
 type Buyinsurance struct {
 	gorm.Model
@@ -130,17 +123,17 @@ type Payback struct {
 
 type Protection struct {
 	gorm.Model
-	Protection_name               string
+	Protection_name    string
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:ProtectionID"`
 }
 type Package struct {
 	gorm.Model
-	Package_name               string
+	Package_name       string
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:PackageID"`
 }
 type Totallist struct {
 	gorm.Model
-	Totallist_cost              string
+	Totallist_cost     string
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:TotallistID"`
 }
 
@@ -161,5 +154,15 @@ type InsuranceConverage struct {
 
 	TotallistID *uint
 	Totallist   Totallist `gorm:"references:id"`
+}
 
+func init() {
+	govalidator.CustomTypeTagMap.Set("notpast", func(i interface{}, context interface{}) bool {
+		t := i.(time.Time)
+		return t.After(time.Now()) || t.Equal(time.Now())
+	})
+	govalidator.CustomTypeTagMap.Set("IsPositive", func(i interface{}, context interface{}) bool {
+		value := i.(int)
+		return value >= 0
+	})
 }
