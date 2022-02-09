@@ -3,8 +3,9 @@ package controller
 import (
 	"net/http"
 
-	"github.com/Kaweethorn/team12/entity"
+	"github.com/asaskevich/govalidator"
 	"github.com/gin-gonic/gin"
+	"github.com/sut64/team12/entity"
 )
 
 // POST /invoicepayment
@@ -38,7 +39,7 @@ func CreateInvoicePayment(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "staff not found"})
 		return
 	}
-	// 15: สร้าง InvoicePayment
+	// 12: สร้าง InvoicePayment
 	ip := entity.InvoicePayment{
 		Invoice:       invoice,                      // โยงความสัมพันธ์กับ Entity Invoice
 		Customer:      customer,                     // โยงความสัมพันธ์กับ Entity Customer
@@ -48,7 +49,13 @@ func CreateInvoicePayment(c *gin.Context) {
 		PaymentAmount: invoicepayment.PaymentAmount, // ตั้งค่าฟิลด์ paymentAmount
 	}
 
-	// 16: บันทึก
+	// ขั้นตอนการ validate ที่นำมาจาก unit test
+	if _, err := govalidator.ValidateStruct(ip); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// 13: บันทึก
 	if err := entity.DB().Create(&ip).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
