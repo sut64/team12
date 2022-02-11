@@ -18,7 +18,7 @@ type Customer struct {
 	IdNumber        string           `gorm:"uniqueIndex"`
 	PolicyNumber    string           `gorm:"uniqueIndex"`
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
-	BuyInsurance    []Buyinsurance   `gorm:"foreignKey:CustomerID"`
+	Buyinsurance    []Buyinsurance   `gorm:"foreignKey:CustomerID"`
 	Paybacks        []Payback        `gorm:"foreignKey:CustomerID"`
 }
 type Status struct {
@@ -50,7 +50,7 @@ type Employee struct {
 	Password           string
 	Hospitalnet        []Hospitalnet        `gorm:"foreignKey:EmployeeID"`
 	InvoicePayments    []InvoicePayment     `gorm:"foreignKey:EmployeeID"`
-	BuyInsurance       []Buyinsurance       `gorm:"foreignKey:EmployeeID"`
+	Buyinsurance       []Buyinsurance       `gorm:"foreignKey:EmployeeID"`
 	Paybacks           []Payback            `gorm:"foreignKey:EmployeeID"`
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:EmployeeID"`
 }
@@ -74,8 +74,8 @@ type InvoicePayment struct {
 type Hospitalnet struct {
 	gorm.Model
 	Name     string
-	Contract float64 `valid:"IsPositive~Contract cannot be negative or 0"`
-	Address  string `valid:"minstringlength(5)~Adddress should more than 5 charactor"`
+	Contract float64   `valid:"IsPositive~Contract cannot be negative or 0"`
+	Address  string    `valid:"minstringlength(5)~Adddress should more than 5 charactor"`
 	Adddate  time.Time `valid:"notpast~Date cannot be past"`
 
 	EmployeeID *uint
@@ -93,13 +93,16 @@ type Hospitalnet struct {
 
 type Buyinsurance struct {
 	gorm.Model
-	Consent      bool
-	HealthInfrom string
-	Adddate      time.Time
-
+	Consent      string    `valid:"required~You must accept Consent"`
+	Healthinfrom string    `valid:"minstringlength(5)~Healthinfrom must be 5 or more "` //valid โดยเช็คว่ามีstring ไม่น้อยกว่า5 ตัว
+	Adddate      time.Time `valid:"present~WatchedTime must be in the past"`
+	// InvoiceID ทำหน้าที่เป็น FK
+	InsuranceConverageID *uint
+	InsuranceConverage   InsuranceConverage `gorm:"references:id"`
+	// CustomerID ทำหน้าที่เป็น FK
 	EmployeeID *uint
 	Employee   Employee `gorm:"references:id"`
-
+	// EmployeeID ทำหน้าที่เป็น FK
 	CustomerID *uint
 	Customer   Customer `gorm:"references:id"`
 }
@@ -154,15 +157,37 @@ type InsuranceConverage struct {
 
 	TotallistID *uint
 	Totallist   Totallist `gorm:"references:id"`
-	
 }
+
 func init() {
-    govalidator.CustomTypeTagMap.Set("notpast", func(i interface{}, context interface{}) bool {
-        t := i.(time.Time)
-        return t.After(time.Now()) || t.Equal(time.Now())
-    })
-    govalidator.CustomTypeTagMap.Set("IsPositive", func(i interface{}, context interface{}) bool {
-        value := i.(int)
-        return value >= 0
-    })
+	govalidator.CustomTypeTagMap.Set("notpast", func(i interface{}, context interface{}) bool {
+		t := i.(time.Time)
+		return t.After(time.Now()) || t.Equal(time.Now())
+	})
+	govalidator.CustomTypeTagMap.Set("IsPositive", func(i interface{}, context interface{}) bool {
+		value := i.(int)
+		return value >= 0
+	})
+	govalidator.CustomTypeTagMap.Set("past", func(i interface{}, context interface{}) bool {
+		t := i.(time.Time)
+		now := time.Now()
+		return now.After(t)
+	})
+	govalidator.CustomTypeTagMap.Set("future", func(i interface{}, context interface{}) bool {
+		t := i.(time.Time)
+		now := time.Now()
+		return now.Before(time.Time(t))
+	})
+	govalidator.CustomTypeTagMap.Set("present",
+		func(i interface{}, context interface{}) bool {
+			t := i.(time.Time)
+			if t.Year() == time.Now().Year() {
+				if int(t.Month()) == int(time.Now().Month()) {
+					if t.Day() == time.Now().Day() {
+						return true
+					}
+				}
+			}
+			return false
+		})
 }
