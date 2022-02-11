@@ -154,17 +154,15 @@ type InsuranceConverage struct {
 
 	TotallistID *uint
 	Totallist   Totallist `gorm:"references:id"`
+	
 }
-
 func init() {
-    govalidator.CustomTypeTagMap.Set("notpast", func(i interface{} , context interface{}) bool{
+    govalidator.CustomTypeTagMap.Set("notpast", func(i interface{}, context interface{}) bool {
         t := i.(time.Time)
-		now := time.Now()
-        return now.Before(t)
+        return t.After(time.Now()) || t.Equal(time.Now())
     })
-}
-	govalidator.CustomTypeTagMap.Set("IsPositive", func(i interface{}, context interface{}) bool {
-		value := i.(int)
-		return value >= 0
-	})
+    govalidator.CustomTypeTagMap.Set("IsPositive", func(i interface{}, context interface{}) bool {
+        value := i.(int)
+        return value >= 0
+    })
 }
