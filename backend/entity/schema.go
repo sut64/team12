@@ -36,12 +36,30 @@ type Genre struct {
 
 type Employee struct {
 	gorm.Model
-	Name            string
-	Email           string `gorm:"uniqueIndex"`
-	Password        string
-	Hospitalnet     []Hospitalnet    `gorm:"foreignKey:EmployeeID"`
-	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
+	Name               string
+	Email              string `gorm:"uniqueIndex"`
+	Password           string
+	Hospitalnet        []Hospitalnet        `gorm:"foreignKey:EmployeeID"`
+	InvoicePayments    []InvoicePayment     `gorm:"foreignKey:CustomerID"`
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:EmployeeID"`
 }
+
+type Protection struct {
+	gorm.Model
+	Name               string
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:ProtectionID"`
+}
+type Package struct {
+	gorm.Model
+	Name               string
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:PackageID"`
+}
+type Totallist struct {
+	gorm.Model
+	Name               string
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:TollistID"`
+}
+
 type InvoicePayment struct {
 	gorm.Model
 	PaymentTime   time.Time
@@ -77,4 +95,23 @@ type Hospitalnet struct {
 
 	GenreID *uint
 	Genre   Genre `gorm:"references:id"`
+}
+type InsuranceConverage struct {
+	gorm.Model
+	Name           string
+	Protectiontype string
+	Premium        string
+	Datetime       time.Time
+
+	EmployeeID *uint
+	Employee   Employee `gorm:"references:id"`
+
+	ProtectionID *uint
+	Protection   Protection `gorm:"references:id"`
+
+	PackageID *uint
+	Package   Package `gorm:"references:id"`
+
+	TotallistID *uint
+	Totallist   Totallist `gorm:"references:id"`
 }

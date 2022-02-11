@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Kaweethorn/team12/controller"
-	"github.com/Kaweethorn/team12/entity"
-	"github.com/Kaweethorn/team12/middlewares"
+	"github.com/B5808724/team12/controller"
+	"github.com/B5808724/team12/entity"
+	"github.com/B5808724/team12/middlewares"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,32 +17,27 @@ func main() {
 	{
 		protected := api.Use(middlewares.Authorizes())
 		{
-			// Invoice Routes
-			protected.GET("/invoices", controller.ListInvoices)
-			protected.GET("/invoice/:id", controller.GetInvoice)
-			protected.POST("/invoices", controller.CreateInvoice)
-			protected.PATCH("/invoices", controller.UpdateInvoice)
-			protected.DELETE("/invoices/:id", controller.DeleteInvoice)
+			// Protection Routes
+			protected.GET("/protections", controller.ListProtections)
+			protected.GET("/protection/:id", controller.GetProtection)
+			protected.POST("/protections", controller.CreateProtection)
+			protected.PATCH("/protections", controller.UpdateProtection)
+			protected.DELETE("/protections/:id", controller.DeleteProtection)
 
-			// Customer Routes
-			protected.GET("/customers", controller.ListCustomers)
-			protected.GET("/customer/:id", controller.GetCustomer)
-			protected.POST("/customers", controller.CreateCustomer)
-			protected.PATCH("/customers", controller.UpdateCustomer)
-			protected.DELETE("/customers/:id", controller.DeleteCustomer)
+			// Package Routes
+			protected.GET("/packages", controller.ListPackages)
+			protected.GET("/package/:id", controller.GetPackage)
+			protected.POST("/packages", controller.CreatePackage)
+			protected.PATCH("/packages", controller.UpdatePackage)
+			protected.DELETE("/packages/:id", controller.DeletePackage)
 
-			// Employee Routes
-			protected.GET("/employees", controller.ListEmployees)
-			protected.GET("/employee/:id", controller.GetEmployee)
-			protected.PATCH("/employees", controller.UpdateEmployee)
-			protected.DELETE("/employees/:id", controller.DeleteEmployee)
+			// Totallist Routes
+			protected.GET("/totallists", controller.ListTotallists)
+			protected.GET("/totallist/:id", controller.GetTotallist)
+			protected.PATCH("/totallists", controller.UpdateTotallist)
+			protected.DELETE("/totallists/:id", controller.DeleteTotallist)
 
-			// InvoicePayment Routes
-			protected.GET("/invoice_payments", controller.ListInvoicePayments)
-			protected.GET("/invoicepayment/:id", controller.GetInvoicePayment)
-			protected.POST("/invoice_payments", controller.CreateInvoicePayment)
-			protected.PATCH("/invoice_payments", controller.UpdateInvoicePayment)
-			protected.DELETE("/invoice_payments/:id", controller.DeleteInvoicePayment)
+			
 		}
 	}
 
