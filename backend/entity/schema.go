@@ -74,7 +74,7 @@ type InvoicePayment struct {
 type Hospitalnet struct {
 	gorm.Model
 	Name     string
-	Contract float64   `valid:"IsPositive~Contract cannot be negative or 0"`
+	Contract int   `valid:"IsPositive~Contract cannot be negative or 0"`
 	Address  string    `valid:"minstringlength(5)~Adddress should more than 5 charactor"`
 	Adddate  time.Time `valid:"notpast~Date cannot be past"`
 
