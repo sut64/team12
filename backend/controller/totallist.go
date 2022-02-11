@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/sut64/team12/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/sut64/team12/entity"
 )
 
 // POST /totallists

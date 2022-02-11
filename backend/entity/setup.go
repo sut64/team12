@@ -33,7 +33,7 @@ func SetupDatabase() {
 		&InsuranceClaim{},
 		&InvoicePayment{},
 		&InsuranceConverage{},
-		&Package{},
+		&PackageInsur{},
 		&Protection{},
 		&Totallist{},
 	)
@@ -106,18 +106,18 @@ func SetupDatabase() {
 	}
 	db.Model(&Protection{}).Create(&Protection3)
 
-	package1 := Package{
+	package1 := PackageInsur{
 		Package_name: "แพ็คเกจ 1",
 	}
-	db.Model(&Package{}).Create(&package1)
-	package2 := Package{
+	db.Model(&PackageInsur{}).Create(&package1)
+	Package2 := PackageInsur{
 		Package_name: "แพ็คเกจ 2",
 	}
-	db.Model(&Package{}).Create(&package2)
-	package3 := Package{
+	db.Model(&PackageInsur{}).Create(&Package2)
+	Package3 := PackageInsur{
 		Package_name: "แพ็คเกจ 3",
 	}
-	db.Model(&Package{}).Create(&package3)
+	db.Model(&PackageInsur{}).Create(&Package3)
 
 	totallist1 := Totallist{
 		Totallist_cost: "1,000,000 ต่อปี",
@@ -146,7 +146,7 @@ func SetupDatabase() {
 		Datetime:       time.Now(),
 		Employee:       a,
 		Protection:     Protection1,
-		Package:        package1,
+		PackageInsur:   package1,
 		Totallist:      totallist1,
 	})
 	// InsuranceConverage2
@@ -156,7 +156,7 @@ func SetupDatabase() {
 		Datetime:       time.Now(),
 		Employee:       b,
 		Protection:     Protection2,
-		Package:        package2,
+		PackageInsur:   Package2,
 		Totallist:      totallist2,
 	})
 }

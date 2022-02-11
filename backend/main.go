@@ -85,21 +85,23 @@ func main() {
 			protected.DELETE("/protections/:id", controller.DeleteProtection)
 
 			// Package Routes
-			protected.GET("/packages", controller.ListPackages)
-			protected.GET("/package/:id", controller.GetPackage)
-			protected.POST("/packages", controller.CreatePackage)
-			protected.PATCH("/packages", controller.UpdatePackage)
-			protected.DELETE("/packages/:id", controller.DeletePackage)
+			protected.GET("/packageinsurs", controller.ListPackageInsurs)
+			protected.GET("/packageinsur/:id", controller.GetPackageInsur)
+			protected.POST("/packageinsurs", controller.CreatePackageInsur)
+			protected.PATCH("/packageinsurs", controller.UpdatePackageInsur)
+			protected.DELETE("/packageinsurs/:id", controller.DeletePackageInsur)
 
 			// Totallist Routes
 			protected.GET("/totallists", controller.ListTotallists)
 			protected.GET("/totallist/:id", controller.GetTotallist)
+			protected.POST("/totallists", controller.CreateTotallist)
 			protected.PATCH("/totallists", controller.UpdateTotallist)
 			protected.DELETE("/totallists/:id", controller.DeleteTotallist)
 
 			// InsuranceConverage Routes
 			protected.GET("/insuranceconverages", controller.ListInsuranceConverages)
 			protected.GET("/insuranceconverage/:id", controller.GetInsuranceConverage)
+			protected.POST("/insuranceconverages", controller.CreateInsuranceConverage)
 			protected.PATCH("/insuranceconverages", controller.UpdateInsuranceConverage)
 			protected.DELETE("/insuranceconverages/:id", controller.DeleteInsuranceConverage)
 
