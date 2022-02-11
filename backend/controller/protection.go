@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/sut64/team12/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/sut64/team12/entity"
 )
 
 // POST /protections
@@ -48,7 +48,7 @@ func ListProtections(c *gin.Context) {
 // DELETE /protections/:id
 func DeleteProtection(c *gin.Context) {
 	id := c.Param("id")
-	if tx := entity.DB().Exec("DELETE FROM totallists WHERE id = ?", id); tx.RowsAffected == 0 {
+	if tx := entity.DB().Exec("DELETE FROM protections WHERE id = ?", id); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "protection not found"})
 		return
 	}

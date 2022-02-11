@@ -130,10 +130,10 @@ type Protection struct {
 	Protection_name    string
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:ProtectionID"`
 }
-type Package struct {
+type PackageInsur struct {
 	gorm.Model
 	Package_name       string
-	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:PackageID"`
+	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:PackageInsurID"`
 }
 type Totallist struct {
 	gorm.Model
@@ -160,9 +160,9 @@ type InsuranceClaim struct {
 
 type InsuranceConverage struct {
 	gorm.Model
-	Protectiontype string
-	Premium        uint
-	Datetime       time.Time
+	Protectiontype string    `valid:"minstringlength(5)~Protectiontype should more than 5 charactor"`
+	Premium        int       `valid:"IsPositive~Premium cannot be negative or 0"`
+	Datetime       time.Time `valid:"notpast~Datetime must not be in the past"`
 
 	EmployeeID *uint
 	Employee   Employee `gorm:"references:id"`
@@ -170,8 +170,8 @@ type InsuranceConverage struct {
 	ProtectionID *uint
 	Protection   Protection `gorm:"references:id"`
 
-	PackageID *uint
-	Package   Package `gorm:"references:id"`
+	PackageInsurID *uint
+	PackageInsur   PackageInsur `gorm:"references:id"`
 
 	TotallistID *uint
 	Totallist   Totallist `gorm:"references:id"`
