@@ -6,7 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sut64/team12/entity"
 )
-// POST /packages
+
+// POST /package
 func CreatePackageInsur(c *gin.Context) {
 	var packageinsur entity.PackageInsur
 	if err := c.ShouldBindJSON(&packageinsur); err != nil {
