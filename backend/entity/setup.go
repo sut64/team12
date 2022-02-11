@@ -26,9 +26,11 @@ func SetupDatabase() {
 		&Hospitalnet{},
 		&Genre{},
 		&Status{},
+		&Motive{},
 		&Province{},
 		&Invoice{},
 		&Customer{},
+		&InsuranceClaim{},
 		&InvoicePayment{},
 		&InsuranceConverage{},
 		&Package{},
@@ -126,6 +128,16 @@ func SetupDatabase() {
 		Totallist_cost: "1,500,000 ต่อปี",
 	}
 	db.Model(&Totallist{}).Create(&totallist2)
+
+	m1 := Motive{
+		Name: "รถล้ม",
+	}
+	db.Model(&Motive{}).Create(&m1)
+
+	m2 := Motive{
+		Name: "ขาหัก",
+	}
+	db.Model(&Motive{}).Create(&m2)
 
 	// InsuranceConverage 1
 	db.Model(&InsuranceConverage{}).Create(&InsuranceConverage{

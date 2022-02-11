@@ -40,11 +40,11 @@ func CreateHospital(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "employee not found"})
 		return
 	}
-	
-	if _, err := govalidator.ValidateStruct(hospitalnet); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
+
+	// if _, err := govalidator.ValidateStruct(hospitalnet); err != nil {
+	// 	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	// 	return
+	// }
 
 	rif := entity.Hospitalnet{
 		Employee: employee,

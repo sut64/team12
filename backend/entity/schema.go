@@ -38,8 +38,8 @@ type Genre struct {
 }
 type Bank struct {
 	gorm.Model
-	Name     string
-	Bank     []Bank    `gorm:"foreignKey:GenreID"`
+	Name string
+	//Bank     []Bank    `gorm:"foreignKey:GenreID"`
 	Paybacks []Payback `gorm:"foreignKey:EmployeeID"`
 }
 
@@ -53,6 +53,7 @@ type Employee struct {
 	Buyinsurance       []Buyinsurance       `gorm:"foreignKey:EmployeeID"`
 	Paybacks           []Payback            `gorm:"foreignKey:EmployeeID"`
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:EmployeeID"`
+	InsuranceClaim     []InsuranceClaim     `gorm:"foreignKey:EmployeeID"`
 }
 type InvoicePayment struct {
 	gorm.Model
@@ -74,7 +75,7 @@ type InvoicePayment struct {
 type Hospitalnet struct {
 	gorm.Model
 	Name     string
-	Contract int   `valid:"IsPositive~Contract cannot be negative or 0"`
+	Contract int       `valid:"IsPositive~Contract cannot be negative or 0"`
 	Address  string    `valid:"minstringlength(5)~Adddress should more than 5 charactor"`
 	Adddate  time.Time `valid:"notpast~Date cannot be past"`
 
@@ -140,6 +141,23 @@ type Totallist struct {
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:TotallistID"`
 }
 
+type Motive struct {
+	gorm.Model
+	Name           string
+	InsuranceClaim []InsuranceClaim `gorm:"foreignKey:MotiveID"`
+}
+type InsuranceClaim struct {
+	gorm.Model
+	Compensation int       `valid:"IsPositive~Compensation cannot be negative or 0"`
+	Insdate      time.Time `valid:"notpastnow~InsurDate must not be in the past"`
+	Patient      string    `valid:"matches(^[0123456789]{13}$)~กรุณากรอกบัตรประจำตัวประชาชนให้ถูกต้อง"`
+	EmployeeID   *uint
+	Employee     Employee `gorm:"references:id" valid:"-"`
+
+	MotiveID *uint
+	Motive   Motive `gorm:"references:id" valid:"-"`
+}
+
 type InsuranceConverage struct {
 	gorm.Model
 	Protectiontype string
@@ -160,6 +178,11 @@ type InsuranceConverage struct {
 }
 
 func init() {
+	govalidator.CustomTypeTagMap.Set("notpastnow", func(i interface{}, o interface{}) bool {
+		t := i.(time.Time)
+		// ย้อนหลังไม่เกิน 1 วัน
+		return t.After(time.Now().AddDate(0, 0, -1))
+	})
 	govalidator.CustomTypeTagMap.Set("notpast", func(i interface{}, context interface{}) bool {
 		t := i.(time.Time)
 		return t.After(time.Now()) || t.Equal(time.Now())

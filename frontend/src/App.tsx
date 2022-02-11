@@ -27,6 +27,8 @@ import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
 import InvoicePayments from "./components/InvoicePayment";
 import InvoicePaymentCreate from "./components/InvoicePaymentCreate";
+import InsuranceClaims from "./components/InsuranceClaim";
+import InsuranceClaimCreate from "./components/InsuranceClaimCreate";
 import SignIn from "./components/SignIn";
 
 const drawerWidth = 240;
@@ -117,6 +119,7 @@ export default function MiniDrawer() {
 
   const menu = [
     { name: "ชำระเบี้ยประกัน", icon: <MonetizationOnIcon />, path: "/invoice_payments" },
+    { name: "เคลมประกัน", icon: <MonetizationOnIcon />, path: "/insuranceclaims" },
   ];
 
   useEffect(() => {
@@ -214,6 +217,8 @@ export default function MiniDrawer() {
                 path="/invoice_payment/create"
                 component={InvoicePaymentCreate}
               />
+               <Route exact path="/insuranceclaims" component={InsuranceClaims} />
+               <Route exact path="/insuranceclaims_create" component={InsuranceClaimCreate} />
             </Switch>
           </div>
         </main>

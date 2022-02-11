@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/sut64/team12/controller"
 	"github.com/sut64/team12/entity"
 	"github.com/sut64/team12/middlewares"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -44,21 +44,20 @@ func main() {
 			protected.PATCH("/invoice_payments", controller.UpdateInvoicePayment)
 			protected.DELETE("/invoice_payments/:id", controller.DeleteInvoicePayment)
 
+			//BuyInsurance Routes
+			protected.GET("/buyinsurances", controller.ListBuyinsurances)
+			protected.GET("/buyinsurance/:id", controller.GetBuyinsurance)
+			protected.POST("/buyinsurances", controller.CreateBuyinsurance)
+			protected.PATCH("/buyinsurances", controller.UpdateBuyinsurance)
+			protected.DELETE("/buyinsurances/:id", controller.DeleteBuyinsurance)
 
-			// BuyInsurance Routes
-			protected.GET("/buyinsurances", controller.Listbuyinsurances)
-			protected.GET("/buyinsurance/:id", controller.Getbuyinsurance)
-			protected.POST("/buyinsurances", controller.Createbuyinsurance)
-			protected.PATCH("/buyinsurances", controller.Updatebuyinsurance)
-			protected.DELETE("/buyinsurances/:id", controller.Deletebuyinsurance)
-
-						// Genre Routes
+			// Genre Routes
 			protected.GET("/genre", controller.ListGenre)
 			protected.GET("/genre/:id", controller.GetGenre)
 			protected.POST("/genre", controller.CreateGenre)
 			protected.PATCH("/genre", controller.UpdateGenre)
-			protected.DELETE("/genre/:id", controller.DeleteGenre)	
-			
+			protected.DELETE("/genre/:id", controller.DeleteGenre)
+
 			// Status Routes
 			protected.GET("/status", controller.ListStatus)
 			protected.GET("/status/:id", controller.GetStatus)
@@ -98,14 +97,23 @@ func main() {
 			protected.PATCH("/totallists", controller.UpdateTotallist)
 			protected.DELETE("/totallists/:id", controller.DeleteTotallist)
 
-
 			// InsuranceConverage Routes
 			protected.GET("/insuranceconverages", controller.ListInsuranceConverages)
 			protected.GET("/insuranceconverage/:id", controller.GetInsuranceConverage)
 			protected.PATCH("/insuranceconverages", controller.UpdateInsuranceConverage)
 			protected.DELETE("/insuranceconverages/:id", controller.DeleteInsuranceConverage)
 
+			protected.GET("/motives", controller.ListMotives)
+			protected.GET("/motive:id", controller.GetMotive)
+			protected.POST("/motive", controller.CreateMotive)
+			protected.PATCH("/motives", controller.UpdateMotive)
+			protected.DELETE("/motive/:id", controller.DeleteMotive)
 
+			protected.GET("/insuranceclaims", controller.ListInsuranceClaims)
+			protected.GET("/insuranceclaim/:id", controller.GetInsuranceClaim)
+			protected.POST("/insuranceclaim", controller.CreateInsuranceClaim)
+			protected.PATCH("/insuranceclaims", controller.UpdateInsuranceClaim)
+			protected.DELETE("/insuranceclaim/:id", controller.DeleteInsuranceClaim)
 
 		}
 	}
