@@ -9,14 +9,14 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestHospitalContractIsPositive(t *testing.T){
+func TestHospitalContractIsPositive(t *testing.T) {
 	g := NewGomegaWithT(t)
 
 	hospitalnet := Hospitalnet{
-		Name: "ThaiHospital",
+		Name:     "ThaiHospital",
 		Contract: -5, //ผิด
-		Address	: "AAAAA",
-		Adddate: time.Now(),
+		Address:  "AAAAA",
+		Adddate:  time.Now(),
 	}
 
 	ok, err := govalidator.ValidateStruct(hospitalnet)
@@ -25,17 +25,17 @@ func TestHospitalContractIsPositive(t *testing.T){
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Contract must be positive"))
+	g.Expect(err.Error()).To(Equal("Contract cannot be negative or 0;Date cannot be past"))
 }
 
-func TestHospitalAddressMustbeInValidPattern(t *testing.T){
+func TestHospitalAddressMustbeInValidPattern(t *testing.T) {
 	g := NewGomegaWithT(t)
 
 	hospitalnet := Hospitalnet{
-		Name: "ThaiHospital",
+		Name:     "ThaiHospital",
 		Contract: 5,
-		Address	: "AA", //ผิด
-		Adddate: time.Now(),
+		Address:  "AA", //ผิด
+		Adddate:  time.Now(),
 	}
 
 	ok, err := govalidator.ValidateStruct(hospitalnet)
@@ -44,17 +44,17 @@ func TestHospitalAddressMustbeInValidPattern(t *testing.T){
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Address must be more than 5 character"))
+	g.Expect(err.Error()).To(Equal("Adddress should more than 5 charactor;Date cannot be past"))
 }
 
-func TestHospitalAdddateMustBeNotPast(t *testing.T){
+func TestHospitalAdddateMustBeNotPast(t *testing.T) {
 	g := NewGomegaWithT(t)
 
 	hospitalnet := Hospitalnet{
-		Name: "ThaiHospital",
+		Name:     "ThaiHospital",
 		Contract: 5,
-		Address	: "AABBC",
-		Adddate: time.Now().AddDate(0 , 0 , -4), //ผิด
+		Address:  "AABBC",
+		Adddate:  time.Now().AddDate(0, 0, -4), //ผิด
 	}
 
 	ok, err := govalidator.ValidateStruct(hospitalnet)
@@ -63,5 +63,5 @@ func TestHospitalAdddateMustBeNotPast(t *testing.T){
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Date must be not past"))
+	g.Expect(err.Error()).To(Equal("Date cannot be past"))
 }

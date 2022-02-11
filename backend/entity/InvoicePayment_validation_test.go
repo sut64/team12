@@ -25,14 +25,14 @@ func TestPaymentTimeMustNotBePast(t *testing.T) {
 	g.Expect(err).ToNot(BeNil())
 
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("WatchedTime must not be in the past"))
+	g.Expect(err.Error()).To(Equal("PaymentTime must not be in the past"))
 }
 
 func TestInvoiceNumberMustBeInValidPattern(t *testing.T) {
 	g := NewGomegaWithT(t)
 
 	ip := InvoicePayment{
-		InvoiceNumber: "i123",
+		InvoiceNumber: "i123456",
 	}
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(ip)
@@ -44,14 +44,14 @@ func TestInvoiceNumberMustBeInValidPattern(t *testing.T) {
 	g.Expect(err).ToNot(BeNil())
 
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("InvoiceNumber does not match"))
+	g.Expect(err.Error()).To(Equal("InvoiceNumber is not correct"))
 }
 
 func TestPaymentAmountMustPositive(t *testing.T) {
 	g := NewGomegaWithT(t)
 
 	ip := InvoicePayment{
-		PaymentAmount: 123,
+		PaymentAmount: -123,
 	}
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(ip)

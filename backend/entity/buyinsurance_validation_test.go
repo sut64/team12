@@ -33,7 +33,7 @@ func TestUserHealthinfrom(t *testing.T) {
 	// ข้อมูลถูกต้องหมดทุก field
 	user := Buyinsurance{
 		Consent:      "Yes",
-		Healthinfrom: "",
+		Healthinfrom: "k",
 		Adddate:      time.Now(),
 	}
 	// ตรวจสอบด้วย govalidator
@@ -56,7 +56,7 @@ func TestUserAdddate(t *testing.T) {
 	user := Buyinsurance{
 		Consent:      "Yes",
 		Healthinfrom: "very good",
-		Adddate:      time.Now(),
+		Adddate:      time.Date(2025, 10, 5, 0, 0, 0, 0, time.UTC),
 	}
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(user)
@@ -68,7 +68,7 @@ func TestUserAdddate(t *testing.T) {
 	g.Expect(err).ToNot(BeNil())
 
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("Time must be present"))
+	g.Expect(err.Error()).To(Equal("Time must be in the present"))
 }
 
 func TestUserConsent(t *testing.T) {
@@ -90,5 +90,5 @@ func TestUserConsent(t *testing.T) {
 	g.Expect(err).ToNot(BeNil())
 
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("You must accept consent"))
+	g.Expect(err.Error()).To(Equal("You must accept Consent"))
 }

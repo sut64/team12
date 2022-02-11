@@ -42,7 +42,7 @@ func TestPremiummonthIsPositive(t *testing.T) {
 	// err ต้องไม่เป็นค่า nil แปลว่าต้องจับ error ได้
 	g.Expect(err).ToNot(BeNil())
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("Premium cannot be negative or 0"))
+	g.Expect(err.Error()).To(Equal("Datetime must not be in the past;Premium cannot be negative or 0"))
 }
 
 func TestProtectiontypeMustbeInValidPattern(t *testing.T) {
@@ -60,7 +60,7 @@ func TestProtectiontypeMustbeInValidPattern(t *testing.T) {
 	// err ต้องไม่เป็นค่า nil แปลว่าต้องจับ error ได้
 	g.Expect(err).ToNot(BeNil())
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("Protectiontype must be more than 5 character"))
+	g.Expect(err.Error()).To(Equal("Datetime must not be in the past;Protectiontype should more than 5 charactor"))
 }
 
 func TestDatetimeMustBeNotPast(t *testing.T) {
@@ -78,5 +78,5 @@ func TestDatetimeMustBeNotPast(t *testing.T) {
 	// err ต้องไม่เป็นค่า nil แปลว่าต้องจับ error ได้
 	g.Expect(err).ToNot(BeNil())
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("Datetime must be not past"))
+	g.Expect(err.Error()).To(Equal("Datetime must not be in the past"))
 }
