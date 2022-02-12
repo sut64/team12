@@ -36,12 +36,6 @@ type Genre struct {
 	Name        string
 	Hospitalnet []Hospitalnet `gorm:"foreignKey:GenreID"`
 }
-type Bank struct {
-	gorm.Model
-	Name string
-	//Bank     []Bank    `gorm:"foreignKey:GenreID"`
-	Paybacks []Payback `gorm:"foreignKey:EmployeeID"`
-}
 
 type Employee struct {
 	gorm.Model
@@ -111,21 +105,28 @@ type Buyinsurance struct {
 
 type Payback struct {
 	gorm.Model
-	Name    string
-	Year    float64
-	Accout  int
-	Address string `valid:"required"`
+
+	IDcard string  `gorm:"uniqueIndex" valid:"matches(^[0123456789]{13}$)~กรุณากรอกบัตรประจำตัวประชาชนให้ถูกต้อง"`
+	Accout string  `valid:"matches(^[0123456789]{10}$)~กรุณากรอกเลขบัญชีให้ถูกต้อง"`
+	Year   float32 `valid:"minamount~Year must not be negotive, required~Year must not be zero"`
+
+	EmployeeID *uint
+	Employee   Employee `gorm:"references:id" valid:"-"`
+
+	ProtectionID *uint
+	Protection   Protection `gorm:"references:id"`
+
+	BankID *uint
+	Bank   Bank `gorm:"references:id" valid:"-"`
 
 	CustomerID *uint
 	Customer   Customer `gorm:"references:id"`
-
-	EmployeeID *uint
-	Employee   Employee `gorm:"references:id"`
-
-	BankID *uint
-	Bank   Bank `gorm:"references:id"`
 }
-
+type Bank struct {
+	gorm.Model
+	Bank_name string
+	Payback   []Payback `gorm:"foreignKey:BankID"`
+}
 type Protection struct {
 	gorm.Model
 	Protection_name    string
@@ -184,18 +185,18 @@ func init() {
 		// ย้อนหลังไม่เกิน 1 วัน
 		return t.After(time.Now().AddDate(0, 0, -1))
 	})
-    govalidator.CustomTypeTagMap.Set("notpast",
-        func(i interface{}, context interface{}) bool {
-            t := i.(time.Time)
-            if t.Year() >= time.Now().Year() {
-                if int(t.Month()) >= int(time.Now().Month()) {
-                    if t.Day() >= time.Now().Day() {
-                        return true
-                    }
-                }
-            }
-            return false
-        })
+	govalidator.CustomTypeTagMap.Set("notpast",
+		func(i interface{}, context interface{}) bool {
+			t := i.(time.Time)
+			if t.Year() >= time.Now().Year() {
+				if int(t.Month()) >= int(time.Now().Month()) {
+					if t.Day() >= time.Now().Day() {
+						return true
+					}
+				}
+			}
+			return false
+		})
 	govalidator.CustomTypeTagMap.Set("IsPositive", func(i interface{}, context interface{}) bool {
 		value := i.(int)
 		return value >= 0
@@ -222,4 +223,9 @@ func init() {
 			}
 			return false
 		})
+
+	govalidator.CustomTypeTagMap.Set("minamount", func(i, o interface{}) bool {
+		a := i.(float32)
+		return a >= 1
+	})
 }

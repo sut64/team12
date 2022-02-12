@@ -56,8 +56,8 @@ func main() {
 			protected.GET("/genre/:id", controller.GetGenre)
 			protected.POST("/genre", controller.CreateGenre)
 			protected.PATCH("/genre", controller.UpdateGenres)
-			protected.DELETE("/genre/:id", controller.DeleteGenre)	
-			
+			protected.DELETE("/genre/:id", controller.DeleteGenre)
+
 			// Status Routes
 			protected.GET("/status", controller.ListStatuses)
 			protected.GET("/status/:id", controller.GetStatus)
@@ -77,7 +77,7 @@ func main() {
 			protected.POST("/hospitalnets", controller.CreateHospitalnet)
 			protected.PATCH("/hospitalnet", controller.UpdateHospitalnets)
 			protected.DELETE("/hospitalnet/id", controller.DeleteHospitalnets)
-			
+
 			protected.GET("/protections", controller.ListProtections)
 			protected.GET("/protection/:id", controller.GetProtection)
 			protected.POST("/protections", controller.CreateProtection)
@@ -116,6 +116,20 @@ func main() {
 			protected.POST("/insuranceclaim", controller.CreateInsuranceClaim)
 			protected.PATCH("/insuranceclaims", controller.UpdateInsuranceClaim)
 			protected.DELETE("/insuranceclaim/:id", controller.DeleteInsuranceClaim)
+
+			// Bank
+			protected.GET("/banks", controller.ListBanks)
+			protected.GET("/bank/:id", controller.GetBank)
+			protected.POST("/banks", controller.CreateBank)
+			protected.PATCH("/banks", controller.UpdateBank)
+			protected.DELETE("/banks/:id", controller.DeleteBank)
+
+			// Payback
+			protected.GET("/paybacks", controller.ListPaybacks)
+			protected.GET("/payback/:id", controller.GetPayback)
+			protected.POST("/payback", controller.CreatePayback)
+			protected.PATCH("/paybacks", controller.UpdatePayback)
+			protected.DELETE("/payback/:id", controller.DeletePayback)
 
 		}
 	}

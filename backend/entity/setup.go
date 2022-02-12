@@ -37,6 +37,8 @@ func SetupDatabase() {
 		&PackageInsur{},
 		&Protection{},
 		&Totallist{},
+		&Bank{},
+		&Payback{},
 	)
 
 	db = database
@@ -106,6 +108,21 @@ func SetupDatabase() {
 		Protection_name: "ประกันอุบัติเหตุ",
 	}
 	db.Model(&Protection{}).Create(&Protection3)
+
+	Bank1 := Bank{
+		Bank_name: "ธนาคารกรุงไทย",
+	}
+	db.Model(&Bank{}).Create(&Bank1)
+
+	Bank2 := Bank{
+		Bank_name: "ธนาคารออมสิน",
+	}
+	db.Model(&Bank{}).Create(&Bank2)
+
+	Bank3 := Bank{
+		Bank_name: "ธนาคารกรุงเทพ",
+	}
+	db.Model(&Bank{}).Create(&Bank3)
 
 	package1 := PackageInsur{
 		Package_name: "แพ็คเกจ 1",
@@ -195,4 +212,5 @@ func SetupDatabase() {
 		PackageInsur:   Package2,
 		Totallist:      totallist2,
 	})
+
 }
