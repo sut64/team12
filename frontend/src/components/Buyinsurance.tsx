@@ -121,7 +121,7 @@ function Buyinsurances() {
                 <TableRow key={item.ID}>
                   <TableCell align="center">{item.ID}</TableCell>
                   <TableCell align="center">{item.Customer.Name}</TableCell>
-                  <TableCell align="center">{item.InsuranceConverage.PackageInsur}</TableCell>
+                  <TableCell align="center">{item.InsuranceConverage.Protection.Protection_name}</TableCell>
                   <TableCell align="center">{item.Employee.Name}</TableCell>
                   <TableCell align="center">{format((new Date(item.Adddate)), 'dd MMMM yyyy ')}</TableCell>
                   <TableCell align="center">{item.Healthinfrom}</TableCell>

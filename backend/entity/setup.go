@@ -23,6 +23,7 @@ func SetupDatabase() {
 	// Migrate the schema
 	database.AutoMigrate(
 		&Employee{},
+		&Buyinsurance{},
 		&Hospitalnet{},
 		&Genre{},
 		&Status{},
@@ -173,7 +174,6 @@ func SetupDatabase() {
 		Name: "คลินิก",
 	}
 	db.Model(&Status{}).Create(&S2)
-
 
 	// InsuranceConverage 1
 	db.Model(&InsuranceConverage{}).Create(&InsuranceConverage{

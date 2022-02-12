@@ -20,6 +20,7 @@ import Select from "@material-ui/core/Select";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 import { InsuranceConverageInterface } from "../models/IInsuranceConverage";
+import { ProtectionInterface } from "../models/IProtection";
 import { CustomersInterface } from "../models/ICustomer";
 import { EmployeesInterface } from "../models/IEmployee";
 import { BuyinsuranceInterface } from "../models/IBuyinsurance";
@@ -108,7 +109,7 @@ function BuyinsuranceCreate() {
   };
 
   const getInsuranceconverages = async () => {
-    fetch(`${apiUrl}/insurancecoverages`, requestOptions)
+    fetch(`${apiUrl}/insuranceconverages`, requestOptions)
       .then((response) => response.json())
       .then((res) => {
         if (res.data) {
@@ -158,7 +159,7 @@ function BuyinsuranceCreate() {
 
   function submit() {
     let data = {
-      InsuranceconverageID: convertType(Buyinsurance.InsuranceConverageID),
+      InsuranceConverageID: convertType(Buyinsurance.InsuranceConverageID),
       CustomerID: convertType(Buyinsurance.CustomerID),
       EmployeeID: convertType(Buyinsurance.EmployeeID),
       Adddate: selectedDate,
@@ -227,7 +228,7 @@ function BuyinsuranceCreate() {
                 value={Buyinsurance.InsuranceConverageID}
                 onChange={handleChange}
                 inputProps={{
-                  name: "InsuranceconverageID",
+                  name: "InsuranceConverageID",
                 }}
               >
                 <option aria-label="None" value="">
@@ -235,7 +236,7 @@ function BuyinsuranceCreate() {
                 </option>
                 {InsuranceConverages.map((item: InsuranceConverageInterface) => (
                   <option value={item.ID} key={item.ID}>
-                    {item.PackageInsur}
+                    {item.Protection.Protection_name}
                   </option>
                 ))}
               </Select>
