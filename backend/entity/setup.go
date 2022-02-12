@@ -36,6 +36,7 @@ func SetupDatabase() {
 		&PackageInsur{},
 		&Protection{},
 		&Totallist{},
+		&Buyinsurance{},
 	)
 
 	db = database
@@ -173,7 +174,6 @@ func SetupDatabase() {
 		Name: "คลินิก",
 	}
 	db.Model(&Status{}).Create(&S2)
-
 
 	// InsuranceConverage 1
 	db.Model(&InsuranceConverage{}).Create(&InsuranceConverage{
