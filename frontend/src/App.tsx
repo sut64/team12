@@ -26,6 +26,7 @@ import Button from "@material-ui/core/Button";
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import SecurityIcon from '@material-ui/icons/Security';
+import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 
 
 import InvoicePayments from "./components/InvoicePayment";
@@ -34,6 +35,8 @@ import InsuranceClaims from "./components/InsuranceClaim";
 import InsuranceClaimCreate from "./components/InsuranceClaimCreate";
 import InsuranceConverage from "./components/InsuranceConverage";
 import InsuranceConverageCreate from "./components/InsuranceConverageCreate";
+import Buyinsurance from "./components/Buyinsurance";
+import BuyinsuranceCreate from "./components/BuyinsuranceCreate";
 import SignIn from "./components/SignIn";
 
 const drawerWidth = 240;
@@ -124,8 +127,10 @@ export default function MiniDrawer() {
 
   const menu = [
     { name: "ชำระเบี้ยประกัน", icon: <MonetizationOnIcon />, path: "/invoice_payments" },
+    { name: "บันทึกการซื้อประกัน", icon: <AssignmentLateIcon />, path: "/buyinsurances" },
     { name: "เคลมประกัน", icon: <LocalHospitalIcon />, path: "/insuranceclaims" },
     { name: "ความคุ้มครอง", icon: <SecurityIcon />, path: "/insuranceconverage" },
+    
   ];
 
 
@@ -228,6 +233,7 @@ export default function MiniDrawer() {
                <Route exact path="/insuranceclaims" component={InsuranceClaims} />
                <Route exact path="/insuranceclaims_create" component={InsuranceClaimCreate} />
                <Route exact path="/insuranceconverage" component={InsuranceConverage} />
+               <Route exact path="/buyinsurances" component={Buyinsurance} />
                <Route
                 exact
                 path="/insuranceconverage/create"
