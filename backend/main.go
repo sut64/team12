@@ -56,8 +56,8 @@ func main() {
 			protected.GET("/genre/:id", controller.GetGenre)
 			protected.POST("/genre", controller.CreateGenre)
 			protected.PATCH("/genre", controller.UpdateGenre)
-			protected.DELETE("/genre/:id", controller.DeleteGenre)
-
+			protected.DELETE("/genre/:id", controller.DeleteGenre)	
+			
 			// Status Routes
 			protected.GET("/status", controller.ListStatus)
 			protected.GET("/status/:id", controller.GetStatus)
@@ -72,12 +72,12 @@ func main() {
 			protected.DELETE("/province/:id", controller.DeleteProvince)
 
 			// Hospital Routes
-			protected.GET("/hospitalnets", controller.ListProvince)
-			protected.GET("/hospitalnet/id", controller.GetProvince)
-			protected.POST("/hospitalnets", controller.CreateProvince)
-			protected.PATCH("/hospitalnet", controller.UpdateProvince)
-			protected.DELETE("/hospitalnet/id", controller.DeleteProvince)
-
+			protected.GET("/hospitalnets", controller.ListHospitalnets)
+			protected.GET("/hospitalnet/id", controller.GetHospitalnet)
+			protected.POST("/hospitalnets", controller.CreateHospitalnet)
+			protected.PATCH("/hospitalnet", controller.UpdateHospitalnets)
+			protected.DELETE("/hospitalnet/id", controller.DeleteHospitalnets)
+			
 			protected.GET("/protections", controller.ListProtections)
 			protected.GET("/protection/:id", controller.GetProtection)
 			protected.POST("/protections", controller.CreateProtection)
