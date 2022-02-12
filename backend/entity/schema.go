@@ -150,7 +150,7 @@ type Motive struct {
 }
 type InsuranceClaim struct {
 	gorm.Model
-	Compensation int       `valid:"IsPositive~Compensation cannot be negative or 0"`
+	Compensation int       `valid:"IsPositive~Compensation cannot be negative"`
 	Insdate      time.Time `valid:"notpastnow~InsurDate must not be in the past"`
 	Patient      string    `valid:"matches(^[0123456789]{13}$)~กรุณากรอกบัตรประจำตัวประชาชนให้ถูกต้อง"`
 	EmployeeID   *uint

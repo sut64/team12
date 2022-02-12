@@ -22,9 +22,9 @@ func TestInsuranceConveragePass(t *testing.T) {
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(insuranceconverage)
 	// ok ต้องเป็น true แปลว่าไม่มี error
-	g.Expect(ok).ToNot(BeTrue())
+	g.Expect(ok).To(BeTrue())
 	// err เป็นค่า nil แปลว่าไม่มี error
-	g.Expect(err).ToNot(BeNil())
+	g.Expect(err).To(BeNil())
 }
 
 func TestPremiummonthIsPositive(t *testing.T) {
@@ -42,7 +42,7 @@ func TestPremiummonthIsPositive(t *testing.T) {
 	// err ต้องไม่เป็นค่า nil แปลว่าต้องจับ error ได้
 	g.Expect(err).ToNot(BeNil())
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("Datetime must not be in the past;Premium cannot be negative or 0"))
+	g.Expect(err.Error()).To(Equal("Premium cannot be negative or 0"))
 }
 
 func TestProtectiontypeMustbeInValidPattern(t *testing.T) {
@@ -60,7 +60,7 @@ func TestProtectiontypeMustbeInValidPattern(t *testing.T) {
 	// err ต้องไม่เป็นค่า nil แปลว่าต้องจับ error ได้
 	g.Expect(err).ToNot(BeNil())
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("Datetime must not be in the past;Protectiontype should more than 5 charactor"))
+	g.Expect(err.Error()).To(Equal("Protectiontype should more than 5 charactor"))
 }
 
 func TestDatetimeMustBeNotPast(t *testing.T) {

@@ -25,7 +25,7 @@ func TestHospitalContractIsPositive(t *testing.T) {
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Contract cannot be negative or 0;Date cannot be past"))
+	g.Expect(err.Error()).To(Equal("Contract cannot be negative or 0"))
 }
 
 func TestHospitalAddressMustbeInValidPattern(t *testing.T) {
@@ -44,7 +44,7 @@ func TestHospitalAddressMustbeInValidPattern(t *testing.T) {
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Adddress should more than 5 charactor;Date cannot be past"))
+	g.Expect(err.Error()).To(Equal("Adddress should more than 5 charactor"))
 }
 
 func TestHospitalAdddateMustBeNotPast(t *testing.T) {
