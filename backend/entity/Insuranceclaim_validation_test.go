@@ -24,7 +24,7 @@ func TestInsuranceClaimComp(t *testing.T) {
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Compensation cannot be negative or 0"))
+	g.Expect(err.Error()).To(Equal("Compensation cannot be negative"))
 }
 
 func TestInsuranceClaimPat(t *testing.T) {
@@ -68,7 +68,7 @@ func TestInsuranceClaim(t *testing.T) {
 	// ข้อมูลถูกต้องหมดทุก field
 	insr := InsuranceClaim{
 		Compensation: 100,
-		Patient:      "1321300115420", //ผิด
+		Patient:      "1321300115420",
 		Insdate:      time.Now(),
 	}
 	//ตรวจสอบด้วย govalidator

@@ -11,12 +11,14 @@ import (
 func TestPaymentTimeMustNotBePast(t *testing.T) {
 	g := NewGomegaWithT(t)
 
-	ip := InvoicePayment{
-		PaymentTime: time.Now(),
+	ip1 := InvoicePayment{
+		PaymentTime:   time.Date(1999, 10, 5, 0, 0, 0, 0, time.UTC), //ผิด
+		InvoiceNumber: "i234",
+		PaymentAmount: 123,
 	}
 
 	// ตรวจสอบด้วย govalidator
-	ok, err := govalidator.ValidateStruct(ip)
+	ok, err := govalidator.ValidateStruct(ip1)
 
 	// ok ต้องไม่เป็นค่า true แปลว่าต้องจับ error ได้
 	g.Expect(ok).ToNot(BeTrue())
@@ -31,11 +33,13 @@ func TestPaymentTimeMustNotBePast(t *testing.T) {
 func TestInvoiceNumberMustBeInValidPattern(t *testing.T) {
 	g := NewGomegaWithT(t)
 
-	ip := InvoicePayment{
-		InvoiceNumber: "i123456",
+	ip2 := InvoicePayment{
+		PaymentTime:   time.Now(),
+		InvoiceNumber: "i23456", //ผิด
+		PaymentAmount: 123,
 	}
 	// ตรวจสอบด้วย govalidator
-	ok, err := govalidator.ValidateStruct(ip)
+	ok, err := govalidator.ValidateStruct(ip2)
 
 	// ok ต้องไม่เป็นค่า true แปลว่าต้องจับ error ได้
 	g.Expect(ok).ToNot(BeTrue())
@@ -50,11 +54,13 @@ func TestInvoiceNumberMustBeInValidPattern(t *testing.T) {
 func TestPaymentAmountMustPositive(t *testing.T) {
 	g := NewGomegaWithT(t)
 
-	ip := InvoicePayment{
-		PaymentAmount: -123,
+	ip3 := InvoicePayment{
+		PaymentTime:   time.Now(),
+		InvoiceNumber: "i234",
+		PaymentAmount: -123, //ผิด
 	}
 	// ตรวจสอบด้วย govalidator
-	ok, err := govalidator.ValidateStruct(ip)
+	ok, err := govalidator.ValidateStruct(ip3)
 
 	// ok ต้องไม่เป็นค่า true แปลว่าต้องจับ error ได้
 	g.Expect(ok).ToNot(BeTrue())
@@ -64,4 +70,21 @@ func TestPaymentAmountMustPositive(t *testing.T) {
 
 	// err.Error ต้องมี error message แสดงออกมา
 	g.Expect(err.Error()).To(Equal("PaymentAmount must be positive"))
+}
+func TestPayment(t *testing.T) {
+	g := NewGomegaWithT(t)
+
+	ip4 := InvoicePayment{
+		PaymentTime:   time.Now(),
+		InvoiceNumber: "i234",
+		PaymentAmount: 123,
+	}
+	// ตรวจสอบด้วย govalidator
+	ok, err := govalidator.ValidateStruct(ip4)
+
+	// ok ต้องไม่เป็นค่า true แปลว่าต้องจับ error ได้
+	g.Expect(ok).To(BeTrue())
+
+	// err ต้องไม่เป็นค่า nil แปลว่าต้องจับ error ได้
+	g.Expect(err).To(BeNil())
 }
