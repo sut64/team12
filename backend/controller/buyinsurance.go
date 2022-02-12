@@ -14,7 +14,7 @@ func CreateBuyinsurance(c *gin.Context) {
 	var Buyinsurance entity.Buyinsurance
 	var Customer entity.Customer
 	var Employee entity.Employee
-	//var Insuranceconverage entity.Insuranceconverage
+	var InsuranceConverage entity.InsuranceConverage
 
 	// ผลลัพธ์ที่ได้จากขั้นตอนที่ 8 จะถูก bind เข้าตัวแปร buyinsurance
 	if err := c.ShouldBindJSON(&Buyinsurance); err != nil {
@@ -23,10 +23,10 @@ func CreateBuyinsurance(c *gin.Context) {
 	}
 
 	// 9: ค้นหา insuranceconverage ด้วย id
-	// if tx := entity.DB().Where("id = ?", Buyinsurance.InsuranceconverageID).First(&Insuranceconverage); tx.RowsAffected == 0 {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "insurance not found"})
-	// 	return
-	// }
+	if tx := entity.DB().Where("id = ?", Buyinsurance.InsuranceConverageID).First(&InsuranceConverage); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "insurance not found"})
+		return
+	}
 
 	// 10: ค้นหา customer ด้วย id
 	if tx := entity.DB().Where("id = ?", Buyinsurance.CustomerID).First(&Customer); tx.RowsAffected == 0 {
@@ -41,12 +41,12 @@ func CreateBuyinsurance(c *gin.Context) {
 	}
 	// 12: สร้าง Buyinsurance
 	wv := entity.Buyinsurance{
-		Customer: Customer, // โยงความสัมพันธ์กับ Entity Customer
-		Employee: Employee, // โยงความสัมพันธ์กับ Entity Employee
-		//Insuranceconverage: Insuranceconverage, // โยงความสัมพันธ์กับ Entity InsuranceConverage
-		Adddate:      Buyinsurance.Adddate,
-		Consent:      Buyinsurance.Consent,
-		Healthinfrom: Buyinsurance.Healthinfrom,
+		Customer:           Customer,           // โยงความสัมพันธ์กับ Entity Customer
+		Employee:           Employee,           // โยงความสัมพันธ์กับ Entity Employee
+		InsuranceConverage: InsuranceConverage, // โยงความสัมพันธ์กับ Entity InsuranceConverage
+		Adddate:            Buyinsurance.Adddate,
+		Consent:            Buyinsurance.Consent,
+		Healthinfrom:       Buyinsurance.Healthinfrom,
 	}
 
 	// ขั้นตอนการ validate ที่นำมาจาก unit test
