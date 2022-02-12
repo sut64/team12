@@ -24,6 +24,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Button from "@material-ui/core/Button";
 
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import SecurityIcon from '@material-ui/icons/Security';
 
 
 import InvoicePayments from "./components/InvoicePayment";
@@ -122,8 +124,8 @@ export default function MiniDrawer() {
 
   const menu = [
     { name: "ชำระเบี้ยประกัน", icon: <MonetizationOnIcon />, path: "/invoice_payments" },
-    { name: "เคลมประกัน", icon: <MonetizationOnIcon />, path: "/insuranceclaims" },
-    { name: "ความคุ้มครอง", icon: <MonetizationOnIcon />, path: "/insuranceconverage" },
+    { name: "เคลมประกัน", icon: <LocalHospitalIcon />, path: "/insuranceclaims" },
+    { name: "ความคุ้มครอง", icon: <SecurityIcon />, path: "/insuranceconverage" },
   ];
 
 
