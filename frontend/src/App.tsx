@@ -25,8 +25,13 @@ import Button from "@material-ui/core/Button";
 
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
+
 import InvoicePayments from "./components/InvoicePayment";
 import InvoicePaymentCreate from "./components/InvoicePaymentCreate";
+import InsuranceClaims from "./components/InsuranceClaim";
+import InsuranceClaimCreate from "./components/InsuranceClaimCreate";
+import InsuranceConverage from "./components/InsuranceConverage";
+import InsuranceConverageCreate from "./components/InsuranceConverageCreate";
 import SignIn from "./components/SignIn";
 
 const drawerWidth = 240;
@@ -117,7 +122,11 @@ export default function MiniDrawer() {
 
   const menu = [
     { name: "ชำระเบี้ยประกัน", icon: <MonetizationOnIcon />, path: "/invoice_payments" },
+    { name: "เคลมประกัน", icon: <MonetizationOnIcon />, path: "/insuranceclaims" },
+    { name: "ความคุ้มครอง", icon: <MonetizationOnIcon />, path: "/insuranceconverage" },
   ];
+
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -213,6 +222,14 @@ export default function MiniDrawer() {
                 exact
                 path="/invoice_payment/create"
                 component={InvoicePaymentCreate}
+              />
+               <Route exact path="/insuranceclaims" component={InsuranceClaims} />
+               <Route exact path="/insuranceclaims_create" component={InsuranceClaimCreate} />
+               <Route exact path="/insuranceconverage" component={InsuranceConverage} />
+               <Route
+                exact
+                path="/insuranceconverage/create"
+                component={InsuranceConverageCreate}
               />
             </Switch>
           </div>
