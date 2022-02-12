@@ -184,10 +184,18 @@ func init() {
 		// ย้อนหลังไม่เกิน 1 วัน
 		return t.After(time.Now().AddDate(0, 0, -1))
 	})
-	govalidator.CustomTypeTagMap.Set("notpast", func(i interface{}, context interface{}) bool {
-		t := i.(time.Time)
-		return t.After(time.Now()) || t.Equal(time.Now())
-	})
+    govalidator.CustomTypeTagMap.Set("notpast",
+        func(i interface{}, context interface{}) bool {
+            t := i.(time.Time)
+            if t.Year() >= time.Now().Year() {
+                if int(t.Month()) >= int(time.Now().Month()) {
+                    if t.Day() >= time.Now().Day() {
+                        return true
+                    }
+                }
+            }
+            return false
+        })
 	govalidator.CustomTypeTagMap.Set("IsPositive", func(i interface{}, context interface{}) bool {
 		value := i.(int)
 		return value >= 0
