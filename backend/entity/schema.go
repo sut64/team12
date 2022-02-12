@@ -68,6 +68,7 @@ type InvoicePayment struct {
 	// CustomerID ทำหน้าที่เป็น FK
 	CustomerID *uint
 	Customer   Customer `gorm:"references:id" valid:"-"`
+
 	// EmployeeID ทำหน้าที่เป็น FK
 	EmployeeID *uint
 	Employee   Employee `gorm:"references:id" valid:"-"`
