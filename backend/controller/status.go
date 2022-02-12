@@ -7,31 +7,6 @@ import (
 	"github.com/sut64/team12/entity"
 )
 
-// GET /status
-// List all customers
-func ListStatus(c *gin.Context) {
-	var status []entity.Status
-	if err := entity.DB().Raw("SELECT * FROM status").Scan(&status).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": status})
-}
-
-// GET /status/:id
-// Get status by id
-func GetStatus(c *gin.Context) {
-	var status entity.Status
-	id := c.Param("id")
-	if err := entity.DB().Raw("SELECT * FROM status WHERE id = ?", id).Scan(&status).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": status})
-}
-
 // POST /status
 func CreateStatus(c *gin.Context) {
 	var status entity.Status
@@ -44,8 +19,41 @@ func CreateStatus(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	c.JSON(http.StatusOK, gin.H{"data": status})
+}
+
+// GET /status/:id
+func GetStatus(c *gin.Context) {
+	var status entity.Status
+	id := c.Param("id")
+	if err := entity.DB().Raw("SELECT * FROM statuses WHERE id = ?", id).Scan(&status).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{"data": status})
+}
+
+// GET /statuses
+func ListStatuses(c *gin.Context) {
+	var statuses []entity.Status
+	if err := entity.DB().Raw("SELECT * FROM statuses").Scan(&statuses).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": statuses})
+}
+
+// DELETE /status/:id
+func DeleteStatuses(c *gin.Context) {
+	id := c.Param("id")
+	if tx := entity.DB().Exec("DELETE FROM statuses WHERE id = ?", id); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "status not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": id})
 }
 
 // PATCH /status
@@ -67,15 +75,4 @@ func UpdateStatus(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"data": status})
-}
-
-// DELETE /status/:id
-func DeleteStatus(c *gin.Context) {
-	id := c.Param("id")
-	if tx := entity.DB().Exec("DELETE FROM status WHERE id = ?", id); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "status not found"})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": id})
 }

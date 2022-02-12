@@ -7,32 +7,7 @@ import (
 	"github.com/sut64/team12/entity"
 )
 
-// GET /province
-// List all provinces
-func ListProvince(c *gin.Context) {
-	var province []entity.Province
-	if err := entity.DB().Raw("SELECT * FROM province").Scan(&province).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": province})
-}
-
-// GET /province/:id
-// Get province by id
-func GetProvince(c *gin.Context) {
-	var province entity.Province
-	id := c.Param("id")
-	if err := entity.DB().Raw("SELECT * FROM province WHERE id = ?", id).Scan(&province).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": province})
-}
-
-// POST /province
+// POST /Province
 func CreateProvince(c *gin.Context) {
 	var province entity.Province
 	if err := c.ShouldBindJSON(&province); err != nil {
@@ -44,12 +19,45 @@ func CreateProvince(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	c.JSON(http.StatusOK, gin.H{"data": province})
+}
+
+// GET /province/:id
+func GetProvince(c *gin.Context) {
+	var province entity.Province
+	id := c.Param("id")
+	if err := entity.DB().Raw("SELECT * FROM provinces WHERE id = ?", id).Scan(&province).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{"data": province})
 }
 
+// GET /provinces
+func ListProvince(c *gin.Context) {
+	var provinces []entity.Province
+	if err := entity.DB().Raw("SELECT * FROM provinces").Scan(&provinces).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": provinces})
+}
+
+// DELETE /province/:id
+func DeleteProvince(c *gin.Context) {
+	id := c.Param("id")
+	if tx := entity.DB().Exec("DELETE FROM provinces WHERE id = ?", id); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "provinces not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": id})
+}
+
 // PATCH /provinces
-func UpdateProvince(c *gin.Context) {
+func UpdateProvinces(c *gin.Context) {
 	var province entity.Province
 	if err := c.ShouldBindJSON(&province); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -67,15 +75,4 @@ func UpdateProvince(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"data": province})
-}
-
-// DELETE /province/:id
-func DeleteProvince(c *gin.Context) {
-	id := c.Param("id")
-	if tx := entity.DB().Exec("DELETE FROM province WHERE id = ?", id); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "province not found"})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": id})
 }

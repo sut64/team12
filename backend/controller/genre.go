@@ -7,32 +7,7 @@ import (
 	"github.com/sut64/team12/entity"
 )
 
-// GET /genre
-// List all genre
-func ListGenre(c *gin.Context) {
-	var genre []entity.Genre
-	if err := entity.DB().Raw("SELECT * FROM genre").Scan(&genre).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": genre})
-}
-
-// GET /genre/:id
-// Get genre by id
-func GetGenre(c *gin.Context) {
-	var genre entity.Genre
-	id := c.Param("id")
-	if err := entity.DB().Raw("SELECT * FROM genre WHERE id = ?", id).Scan(&genre).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": genre})
-}
-
-// POST /genre
+// POST /genres
 func CreateGenre(c *gin.Context) {
 	var genre entity.Genre
 	if err := c.ShouldBindJSON(&genre); err != nil {
@@ -44,12 +19,45 @@ func CreateGenre(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	c.JSON(http.StatusOK, gin.H{"data": genre})
+}
+
+// GET /genre/:id
+func GetGenre(c *gin.Context) {
+	var genre entity.Genre
+	id := c.Param("id")
+	if err := entity.DB().Raw("SELECT * FROM genres WHERE id = ?", id).Scan(&genre).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{"data": genre})
 }
 
-// PATCH /genre
-func UpdateGenre(c *gin.Context) {
+// GET /genres
+func ListGenres(c *gin.Context) {
+	var genres []entity.Genre
+	if err := entity.DB().Raw("SELECT * FROM genres").Scan(&genres).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": genres})
+}
+
+// DELETE /genre/:id
+func DeleteGenre(c *gin.Context) {
+	id := c.Param("id")
+	if tx := entity.DB().Exec("DELETE FROM genres WHERE id = ?", id); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "genres not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": id})
+}
+
+// PATCH /genres
+func UpdateGenres(c *gin.Context) {
 	var genre entity.Genre
 	if err := c.ShouldBindJSON(&genre); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -57,7 +65,7 @@ func UpdateGenre(c *gin.Context) {
 	}
 
 	if tx := entity.DB().Where("id = ?", genre.ID).First(&genre); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "province not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "genre not found"})
 		return
 	}
 
@@ -67,15 +75,4 @@ func UpdateGenre(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"data": genre})
-}
-
-// DELETE /genre/:id
-func DeleteGenre(c *gin.Context) {
-	id := c.Param("id")
-	if tx := entity.DB().Exec("DELETE FROM genre WHERE id = ?", id); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "genre not found"})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": id})
 }
