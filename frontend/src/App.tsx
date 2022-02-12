@@ -248,6 +248,11 @@ export default function MiniDrawer() {
                 path="/hospitanet/create"
                 component={HospitalnetCreate}
               />
+              <Route
+                exact
+                path="/buyinsurance/create"
+                component={BuyinsuranceCreate}
+              />
             </Switch>
           </div>
         </main>
