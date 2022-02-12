@@ -123,7 +123,7 @@ function Buyinsurances() {
                   <TableCell align="center">{item.Customer.Name}</TableCell>
                   <TableCell align="center">{item.InsuranceConverage.Protection.Protection_name}</TableCell>
                   <TableCell align="center">{item.Employee.Name}</TableCell>
-                  <TableCell align="center">{format((new Date(item.Adddate)), 'dd MMMM yyyy ')}</TableCell>
+                  <TableCell align="center">{format((new Date(item.Adddate)), 'dd MMMM yyyy hh:mm a')}</TableCell>
                   <TableCell align="center">{item.Healthinfrom}</TableCell>
                   <TableCell align="center">{item.Consent}</TableCell>
                 </TableRow>

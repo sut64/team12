@@ -56,7 +56,7 @@ func TestUserAdddate(t *testing.T) {
 	user := Buyinsurance{
 		Consent:      "Yes",
 		Healthinfrom: "very good",
-		Adddate:      time.Date(2025, 10, 5, 0, 0, 0, 0, time.UTC),
+		Adddate:      time.Date(1999, 10, 5, 0, 0, 0, 0, time.UTC),
 	}
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(user)
@@ -68,7 +68,7 @@ func TestUserAdddate(t *testing.T) {
 	g.Expect(err).ToNot(BeNil())
 
 	// err.Error ต้องมี error message แสดงออกมา
-	g.Expect(err.Error()).To(Equal("Time must be in the present"))
+	g.Expect(err.Error()).To(Equal("Time must not be in the past"))
 }
 
 func TestUserConsent(t *testing.T) {

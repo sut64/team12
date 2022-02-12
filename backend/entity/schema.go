@@ -91,7 +91,7 @@ type Buyinsurance struct {
 	gorm.Model
 	Consent      string    `valid:"required~You must accept Consent"`
 	Healthinfrom string    `valid:"minstringlength(5)~Healthinfrom must be 5 or more "` //valid โดยเช็คว่ามีstring ไม่น้อยกว่า5 ตัว
-	Adddate      time.Time `valid:"present~Time must be in the present"`
+	Adddate      time.Time `valid:"notpastnow~Time must not be in the past"`
 	// InvoiceID ทำหน้าที่เป็น FK
 	InsuranceConverageID *uint
 	InsuranceConverage   InsuranceConverage `gorm:"references:id"`
@@ -228,4 +228,5 @@ func init() {
 		a := i.(float32)
 		return a >= 1
 	})
+
 }
