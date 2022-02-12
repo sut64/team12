@@ -28,6 +28,7 @@ import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import SecurityIcon from '@material-ui/icons/Security';
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 import LocationOnIcon from '@material-ui/icons/AddLocation';
+import PaymentIcon from '@material-ui/icons/Payment';
 
 
 import InvoicePayments from "./components/InvoicePayment";
@@ -40,6 +41,9 @@ import Buyinsurance from "./components/Buyinsurance";
 import BuyinsuranceCreate from "./components/BuyinsuranceCreate";
 import hospitalnet from "./components/Hospitalnet";
 import HospitalnetCreate from "./components/HospitalnetCreate";
+import Payback from "./components/Payback";
+import PaybackCreate from "./components/PaybackCreate";
+
 import SignIn from "./components/SignIn";
 
 const drawerWidth = 240;
@@ -131,12 +135,12 @@ export default function MiniDrawer() {
   const menu = [
     { name: "ชำระเบี้ยประกัน", icon: <MonetizationOnIcon />, path: "/invoice_payments" },
     { name: "บันทึกการซื้อประกัน", icon: <AssignmentLateIcon />, path: "/buyinsurances" },
+    { name: "การคืนทุนประกัน", icon: <PaymentIcon />, path: "/payback" },
     { name: "เคลมประกัน", icon: <LocalHospitalIcon />, path: "/insuranceclaims" },
     { name: "ความคุ้มครอง", icon: <SecurityIcon />, path: "/insuranceconverage" },
-    { name: "บันทึกโรงพยาบาลในเครือข่าย" , icon: <LocationOnIcon/>, path:"/hospitalnet"},
+    { name: "บันทึกโรงพยาบาลในเครือข่าย", icon: <LocationOnIcon />, path: "/hospitalnet" },
+    
   ];
-
-
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -234,11 +238,12 @@ export default function MiniDrawer() {
                 path="/invoice_payment/create"
                 component={InvoicePaymentCreate}
               />
-               <Route exact path="/insuranceclaims" component={InsuranceClaims} />
-               <Route exact path="/insuranceclaims_create" component={InsuranceClaimCreate} />
-               <Route exact path="/insuranceconverage" component={InsuranceConverage} />
-               <Route exact path="/buyinsurances" component={Buyinsurance} />
-               <Route
+              <Route exact path="/insuranceclaims" component={InsuranceClaims} />
+              <Route exact path="/insuranceclaims_create" component={InsuranceClaimCreate} />
+              <Route exact path="/insuranceconverage" component={InsuranceConverage} />
+              <Route exact path="/buyinsurances" component={Buyinsurance} />
+              <Route exact path="/payback" component={Payback}/>
+              <Route
                 exact
                 path="/insuranceconverage/create"
                 component={InsuranceConverageCreate}
@@ -252,6 +257,11 @@ export default function MiniDrawer() {
                 exact
                 path="/buyinsurance/create"
                 component={BuyinsuranceCreate}
+              />
+              <Route
+                exact
+                path="/payback/create"
+                component={PaybackCreate}
               />
             </Switch>
           </div>
