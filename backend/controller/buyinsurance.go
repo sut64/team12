@@ -14,7 +14,7 @@ func CreateBuyinsurance(c *gin.Context) {
 	var Buyinsurance entity.Buyinsurance
 	var Customer entity.Customer
 	var Employee entity.Employee
-	var InsuranceConverage entity.InsuranceConverage
+	var insuranceconverages entity.InsuranceConverage
 
 	// ผลลัพธ์ที่ได้จากขั้นตอนที่ 8 จะถูก bind เข้าตัวแปร buyinsurance
 	if err := c.ShouldBindJSON(&Buyinsurance); err != nil {
@@ -23,7 +23,7 @@ func CreateBuyinsurance(c *gin.Context) {
 	}
 
 	// 9: ค้นหา insuranceconverage ด้วย id
-	if tx := entity.DB().Where("id = ?", Buyinsurance.InsuranceConverageID).First(&InsuranceConverage); tx.RowsAffected == 0 {
+	if tx := entity.DB().Where("id = ?", Buyinsurance.InsuranceConverageID).First(&insuranceconverages); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "insurance not found"})
 		return
 	}
@@ -41,9 +41,9 @@ func CreateBuyinsurance(c *gin.Context) {
 	}
 	// 12: สร้าง Buyinsurance
 	wv := entity.Buyinsurance{
-		Customer:           Customer,           // โยงความสัมพันธ์กับ Entity Customer
-		Employee:           Employee,           // โยงความสัมพันธ์กับ Entity Employee
-		InsuranceConverage: InsuranceConverage, // โยงความสัมพันธ์กับ Entity InsuranceConverage
+		Customer:           Customer,            // โยงความสัมพันธ์กับ Entity Customer
+		Employee:           Employee,            // โยงความสัมพันธ์กับ Entity Employee
+		InsuranceConverage: insuranceconverages, // โยงความสัมพันธ์กับ Entity InsuranceConverage
 		Adddate:            Buyinsurance.Adddate,
 		Consent:            Buyinsurance.Consent,
 		Healthinfrom:       Buyinsurance.Healthinfrom,
@@ -67,7 +67,7 @@ func CreateBuyinsurance(c *gin.Context) {
 func GetBuyinsurance(c *gin.Context) {
 	var Buyinsurance entity.Buyinsurance
 	id := c.Param("id")
-	if err := entity.DB().Preload("Insuranceconverage").Preload("Customer").Preload("Employee").Raw("SELECT * FROM Buyinsurances WHERE id = ?", id).Find(&Buyinsurance).Error; err != nil {
+	if err := entity.DB().Preload("InsuranceConverage").Preload("Customer").Preload("Employee").Raw("SELECT * FROM Buyinsurances WHERE id = ?", id).Find(&Buyinsurance).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -77,7 +77,7 @@ func GetBuyinsurance(c *gin.Context) {
 // GET /Buyinsurances
 func ListBuyinsurances(c *gin.Context) {
 	var Buyinsurances []entity.Buyinsurance
-	if err := entity.DB().Preload("Insuranceconverage").Preload("Customer").Preload("Employee").Raw("SELECT * FROM Buyinsurances").Find(&Buyinsurances).Error; err != nil {
+	if err := entity.DB().Preload("InsuranceConverage").Preload("Customer").Preload("Employee").Raw("SELECT * FROM Buyinsurances").Find(&Buyinsurances).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -105,7 +105,7 @@ func UpdateBuyinsurance(c *gin.Context) {
 	}
 
 	if tx := entity.DB().Where("id = ?", Buyinsurance.ID).First(&Buyinsurance); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "watchvideo not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "buyinsurance not found"})
 		return
 	}
 
