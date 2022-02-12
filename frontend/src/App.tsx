@@ -26,6 +26,7 @@ import Button from "@material-ui/core/Button";
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import SecurityIcon from '@material-ui/icons/Security';
+import LocationOnIcon from '@material-ui/icons/AddLocation';
 
 
 import InvoicePayments from "./components/InvoicePayment";
@@ -34,6 +35,8 @@ import InsuranceClaims from "./components/InsuranceClaim";
 import InsuranceClaimCreate from "./components/InsuranceClaimCreate";
 import InsuranceConverage from "./components/InsuranceConverage";
 import InsuranceConverageCreate from "./components/InsuranceConverageCreate";
+import hospitalnet from "./components/Hospitalnet";
+import HospitalnetCreate from "./components/HospitalnetCreate";
 import SignIn from "./components/SignIn";
 
 const drawerWidth = 240;
@@ -126,6 +129,7 @@ export default function MiniDrawer() {
     { name: "ชำระเบี้ยประกัน", icon: <MonetizationOnIcon />, path: "/invoice_payments" },
     { name: "เคลมประกัน", icon: <LocalHospitalIcon />, path: "/insuranceclaims" },
     { name: "ความคุ้มครอง", icon: <SecurityIcon />, path: "/insuranceconverage" },
+    { name: "บันทึกโรงพยาบาลในเครือข่าย" , icon: <LocationOnIcon/>, path:"/hospitalnet"},
   ];
 
 
@@ -220,6 +224,7 @@ export default function MiniDrawer() {
           <div>
             <Switch>
               <Route exact path="/invoice_payments" component={InvoicePayments} />
+              <Route exact path="/hospitalnet" component={hospitalnet} />
               <Route
                 exact
                 path="/invoice_payment/create"
@@ -232,6 +237,11 @@ export default function MiniDrawer() {
                 exact
                 path="/insuranceconverage/create"
                 component={InsuranceConverageCreate}
+              />
+              <Route
+                exact
+                path="/hospitanet/create"
+                component={HospitalnetCreate}
               />
             </Switch>
           </div>

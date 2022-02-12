@@ -139,6 +139,41 @@ func SetupDatabase() {
 	}
 	db.Model(&Motive{}).Create(&m2)
 
+	P1 := Province{
+		Province_name: "กรุงเทพมหานคร",
+	}
+	db.Model(&Province{}).Create(&P1)
+
+	P2 := Province{
+		Province_name: "นครราชสีมา",
+	}
+	db.Model(&Province{}).Create(&P2)
+
+	P3 := Province{
+		Province_name: "ขอนแก่น",
+	}
+	db.Model(&Province{}).Create(&P3)
+
+	G1 := Genre{
+		Genre_name: "รัฐ",
+	}
+	db.Model(&Genre{}).Create(&G1)
+
+	G2 := Genre{
+		Genre_name: "เอกชน",
+	}
+	db.Model(&Genre{}).Create(&G2)
+
+	S1 := Status{
+		Status_name: "โรงพยาบาล",
+	}
+	db.Model(&Status{}).Create(&S1)
+
+	S2 := Status{
+		Status_name: "คลินิก",
+	}
+	db.Model(&Status{}).Create(&S2)
+
 	// InsuranceConverage 1
 	db.Model(&InsuranceConverage{}).Create(&InsuranceConverage{
 		Premium:        10000,
