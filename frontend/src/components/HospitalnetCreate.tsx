@@ -200,7 +200,7 @@ function HospitalnetCreate() {
   }
 
     return (
-    <Container>
+    <Container className={classes.container} maxWidth="md">
       <Snackbar open={success} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
           บันทึกข้อมูลสำเร็จ
@@ -225,7 +225,7 @@ function HospitalnetCreate() {
           </Box>
         </Box>
         <Divider />
-        <Grid container spacing={3}  >
+        <Grid container spacing={3} className={classes.root} >
           <Grid item xs={6}>
             <FormControl fullWidth variant="outlined">
               <p>ประเภท</p>
@@ -250,7 +250,7 @@ function HospitalnetCreate() {
           </Grid>
           <Grid item xs={6}>
             <FormControl fullWidth variant="outlined">
-              <p>status</p>
+              <p>สถานะ</p>
               <Select
                 native
                 value={hospitalnets.StatusID}
@@ -260,7 +260,7 @@ function HospitalnetCreate() {
                 }}
               >
                 <option aria-label="None" value="">
-                  กรุณาเลือกStatus
+                  กรุณาเลือกสถานะ
                 </option>
                 {status.map((status: StatusInterface) => (
                   <option value={status.ID} key={status.ID}>

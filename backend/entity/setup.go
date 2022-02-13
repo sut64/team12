@@ -173,22 +173,22 @@ func SetupDatabase() {
 	db.Model(&Province{}).Create(&P3)
 
 	G1 := Genre{
-		Name: "รัฐ",
+		Name: "โรงพยาบาล",
 	}
 	db.Model(&Genre{}).Create(&G1)
 
 	G2 := Genre{
-		Name: "เอกชน",
+		Name: "คลินิก",
 	}
 	db.Model(&Genre{}).Create(&G2)
 
 	S1 := Status{
-		Name: "โรงพยาบาล",
+		Name: "รัฐ",
 	}
 	db.Model(&Status{}).Create(&S1)
 
 	S2 := Status{
-		Name: "คลินิก",
+		Name: "เอกชน",
 	}
 	db.Model(&Status{}).Create(&S2)
 

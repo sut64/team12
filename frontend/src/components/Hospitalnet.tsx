@@ -94,7 +94,7 @@ function Hospitalnet() {
                   ประเภท
                 </TableCell>
                 <TableCell align="center" width="15%">
-                  status
+                  สถานะ
                 </TableCell>
                 <TableCell align="center" width="15%">
                   ชื่อ
