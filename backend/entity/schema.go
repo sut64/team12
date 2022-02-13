@@ -92,7 +92,7 @@ type Buyinsurance struct {
 	Consent      string    `valid:"required~You must accept Consent"`
 	Healthinfrom string    `valid:"minstringlength(5)~Healthinfrom must be 5 or more "` //valid โดยเช็คว่ามีstring ไม่น้อยกว่า5 ตัว
 	Adddate      time.Time `valid:"notpastnow~Time must not be in the past"`
-	// InvoiceID ทำหน้าที่เป็น FK
+	// InsuranceCoverageID ทำหน้าที่เป็น FK
 	InsuranceConverageID *uint
 	InsuranceConverage   InsuranceConverage `gorm:"references:id"`
 	// CustomerID ทำหน้าที่เป็น FK

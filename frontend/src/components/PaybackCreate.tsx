@@ -233,7 +233,7 @@ function PaybackCreate() {
                 }}
               >
                 <option aria-label="None" value="">
-                  กรุณาเลือกสมาชิก
+                  กรุณาเลือกลูกค้า
                 </option>
                 {customer.map((item: CustomersInterface) => (
                   <option value={item.ID} key={item.ID}>

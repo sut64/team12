@@ -14,12 +14,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { BuyinsuranceInterface } from "../models/IBuyinsurance";
 import { format } from 'date-fns'
-import React from 'react';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -100,7 +94,7 @@ function Buyinsurances() {
                   ลูกค้า
                 </TableCell>
                 <TableCell align="center" width="15%">
-                  ประเภท
+                  หมายเลขความคุ้มครอง
                 </TableCell>
                 <TableCell align="center" width="15%">
                   พนักงานดูแล
@@ -121,7 +115,7 @@ function Buyinsurances() {
                 <TableRow key={item.ID}>
                   <TableCell align="center">{item.ID}</TableCell>
                   <TableCell align="center">{item.Customer.Name}</TableCell>
-                  <TableCell align="center">{item.InsuranceConverage.Protection.Protection_name}</TableCell>
+                  <TableCell align="center">{item.InsuranceConverage.ProtectionID}</TableCell>
                   <TableCell align="center">{item.Employee.Name}</TableCell>
                   <TableCell align="center">{format((new Date(item.Adddate)), 'dd MMMM yyyy hh:mm a')}</TableCell>
                   <TableCell align="center">{item.Healthinfrom}</TableCell>

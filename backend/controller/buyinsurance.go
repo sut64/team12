@@ -40,7 +40,7 @@ func CreateBuyinsurance(c *gin.Context) {
 		return
 	}
 	// 12: สร้าง Buyinsurance
-	wv := entity.Buyinsurance{
+	bi := entity.Buyinsurance{
 		Customer:           Customer,            // โยงความสัมพันธ์กับ Entity Customer
 		Employee:           Employee,            // โยงความสัมพันธ์กับ Entity Employee
 		InsuranceConverage: insuranceconverages, // โยงความสัมพันธ์กับ Entity InsuranceConverage
@@ -50,17 +50,17 @@ func CreateBuyinsurance(c *gin.Context) {
 	}
 
 	// ขั้นตอนการ validate ที่นำมาจาก unit test
-	if _, err := govalidator.ValidateStruct(wv); err != nil {
+	if _, err := govalidator.ValidateStruct(bi); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
 	// 13: บันทึก
-	if err := entity.DB().Create(&wv).Error; err != nil {
+	if err := entity.DB().Create(&bi).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": wv})
+	c.JSON(http.StatusOK, gin.H{"data": bi})
 }
 
 // GET /buyinsuranceconverage/:id
