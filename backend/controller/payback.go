@@ -47,7 +47,7 @@ func CreatePayback(c *gin.Context) {
 		return
 	}
 	// 12: สร้าง Payback
-	ip := entity.Payback{
+	pb := entity.Payback{
 		Bank:       banks,
 		Protection: protections,
 		Customer:   customers, // โยงความสัมพันธ์กับ Entity Customer
@@ -59,17 +59,17 @@ func CreatePayback(c *gin.Context) {
 	}
 
 	// ขั้นตอนการ validate ที่นำมาจาก unit test
-	if _, err := govalidator.ValidateStruct(ip); err != nil {
+	if _, err := govalidator.ValidateStruct(pb); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
 	// 13: บันทึก
-	if err := entity.DB().Create(&ip).Error; err != nil {
+	if err := entity.DB().Create(&pb).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": ip})
+	c.JSON(http.StatusOK, gin.H{"data": pb})
 }
 
 // GET /payback/:id

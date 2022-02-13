@@ -254,7 +254,7 @@ function BuyinsuranceCreate() {
                 }}
               >
                 <option aria-label="None" value="">
-                  กรุณาเลือกสมาชิก
+                  กรุณาเลือกลูกค้า
                 </option>
                 {customers.map((item: CustomersInterface) => (
                   <option value={item.ID} key={item.ID}>
