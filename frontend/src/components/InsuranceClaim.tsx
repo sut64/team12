@@ -94,6 +94,9 @@ function InsuranceClaims() {
                   สาเหตุ
                 </TableCell>
                 <TableCell align="center" width="15%">
+                  ลูกค้า
+                </TableCell>
+                <TableCell align="center" width="15%">
                   พนักงาน
                 </TableCell>
                 <TableCell align="center" width="15%">
@@ -113,6 +116,7 @@ function InsuranceClaims() {
                 <TableRow key={item.ID}>
                   <TableCell align="center">{item.ID}</TableCell>
                   <TableCell align="center">{item.Motive.Name}</TableCell>
+                  <TableCell align="center">{item.Customer.Name}</TableCell>
                   <TableCell align="center">{item.Employee.Name}</TableCell>
                   <TableCell align="center">{item.Patient}</TableCell>
                   <TableCell align="center">{item.Compensation}</TableCell>

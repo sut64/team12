@@ -21,6 +21,7 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 import { MotivesInterface } from "../models/IMotive";
 import { EmployeesInterface } from "../models/IEmployee";
+import { CustomersInterface } from "../models/ICustomer";
 import { InsuranceClaimInterface} from "../models/IInsuranceClaim";
 
 import {
@@ -52,6 +53,7 @@ function InsuranceClaimCreate() {
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());;
   const [motives, setMotives] = useState<MotivesInterface[]>([]);
+  const [customers, setCustomers] = useState<CustomersInterface[]>([]);
   const [employees, setEmployees] = useState<EmployeesInterface>();
   const [insuranceclaime, setInsuranceClaim] = useState<Partial<InsuranceClaimInterface>>(
     {}
@@ -121,9 +123,22 @@ function InsuranceClaimCreate() {
       });
   };
 
+  const getCustomers = async () => {
+    fetch(`${apiUrl}/customers`, requestOptions)
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.data) {
+          setCustomers(res.data);
+        } else {
+          console.log("else");
+        }
+      });
+  };
+
   useEffect(() => {
     getMotives();
     getEmployee();
+    getCustomers();
   }, []);
 
   const convertType = (data: string | number | undefined) => {
@@ -134,7 +149,7 @@ function InsuranceClaimCreate() {
   function submit() {
     let data = {
       MotiveID: convertType(insuranceclaime.MotiveID),
-      
+      CustomerID: convertType(insuranceclaime.CustomerID),
       EmployeeID: convertType(insuranceclaime.EmployeeID),
       Insdate: selectedDate,
       Compensation: convertType(insuranceclaime.Compensation),
@@ -217,7 +232,26 @@ function InsuranceClaimCreate() {
             </FormControl>
           </Grid>
           <Grid item xs={6}>
-            
+            <FormControl fullWidth variant="outlined">
+              <p>ลูกค้า</p>
+              <Select
+                native
+                value={insuranceclaime.CustomerID}
+                onChange={handleChange}
+                inputProps={{
+                  name: "CustomerID",
+                }}
+              >
+                <option aria-label="None" value="">
+                กรุณาเลือกลูกค้า
+                </option>
+                {customers.map((item: CustomersInterface) => (
+                  <option value={item.ID} key={item.ID}>
+                    {item.Name}
+                  </option>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={6}>
             <FormControl fullWidth variant="outlined">
