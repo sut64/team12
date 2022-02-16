@@ -1,66 +1,47 @@
 {
-  "id": "b80e8d30-e8b8-45e3-b05e-dd9db191fbb7",
+  "id": "bba0d838-2c8d-4e05-b76f-579c5e6ba7d7",
   "version": "2.0",
-  "name": "InsuranceConverage",
+  "name": "B5808724_InsuranceConverage",
   "url": "http://localhost:3000",
   "tests": [{
-    "id": "28cee80d-83ea-4662-97a1-147ecce16609",
+    "id": "29a56787-ffcb-4ddb-bca6-c0fb55a877ef",
     "name": "B5808724 - บันทึกข้อมูลสำเร็จ",
-    "commands": []
-  }, {
-    "id": "0a04b9f6-1463-40db-8a15-0638207d33c0",
-    "name": "B5808724 - ตรวจสอบเวลา InsuranceConverage ต้องไม่เป็นอดีต",
-    "commands": []
-  }, {
-    "id": "4fdbd8c4-bfc8-4a0f-874b-e2d643523008",
-    "name": "B5808724 - ตรวจสอบ InsuranceConverage มีค่ามากกว่า 5 ตัว",
-    "commands": []
-  }, {
-    "id": "31d52bea-f5ec-488b-82df-79c081acf142",
-    "name": "B5808724 - ตรวจสอบ InsuranceConverage ต้องมีค่ามากกว่า 0",
     "commands": [{
-      "id": "37f725df-4234-4032-8198-6867890d8223",
+      "id": "88632b15-530d-4fba-9750-0f941825e329",
       "comment": "",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
-      "id": "31fe9ef9-b378-454b-8ea9-44c228a78de6",
+      "id": "561b02b5-9d5f-4058-a4a6-d6d4c116badd",
       "comment": "",
       "command": "setWindowSize",
-      "target": "814x718",
+      "target": "945x1020",
       "targets": [],
       "value": ""
     }, {
-      "id": "f823386f-54c3-44a8-b7af-fc6eb2b56c3a",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.MuiListItemIcon-root > .MuiSvgIcon-root",
-      "targets": [
-        ["css=.MuiListItemIcon-root > .MuiSvgIcon-root", "css:finder"]
-      ],
-      "value": ""
-    }, {
-      "id": "82497510-c49e-4dbe-95d1-6a0c5f7c779f",
+      "id": "8fe0a65a-aa03-432c-b300-f18c9e384281",
       "comment": "",
       "command": "click",
-      "target": "css=.MuiListItemIcon-root > .MuiSvgIcon-root",
+      "target": "css=.makeStyles-a-12:nth-child(5) path",
       "targets": [
-        ["css=.MuiListItemIcon-root > .MuiSvgIcon-root", "css:finder"]
+        ["css=.makeStyles-a-12:nth-child(5) path", "css:finder"]
       ],
       "value": ""
     }, {
-      "id": "550f137b-7dbb-4b9f-85d3-e41844446d8e",
+      "id": "20cb7640-16d8-41d5-a6b2-0a5ca6a14891",
       "comment": "",
       "command": "mouseOut",
-      "target": "css=.MuiListItemIcon-root > .MuiSvgIcon-root",
+      "target": "css=.makeStyles-a-12:nth-child(5) .MuiListItemIcon-root",
       "targets": [
-        ["css=.MuiListItemIcon-root > .MuiSvgIcon-root", "css:finder"]
+        ["css=.makeStyles-a-12:nth-child(5) .MuiListItemIcon-root", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/ul/a[5]/div/div", "xpath:idRelative"],
+        ["xpath=//a[5]/div/div", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "537dc5f7-f67e-41d4-8b00-6a25dc65c11c",
+      "id": "7d69a972-007b-493d-b89e-8f1f31eaf1a8",
       "comment": "",
       "command": "mouseOver",
       "target": "css=.MuiButton-contained > .MuiButton-label",
@@ -68,11 +49,11 @@
         ["css=.MuiButton-contained > .MuiButton-label", "css:finder"],
         ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]/a/span", "xpath:idRelative"],
         ["xpath=//a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'เพิ่มข้อมูลการทำประกัน')]", "xpath:innerText"]
+        ["xpath=//span[contains(.,'เพิ่มข้อมูลความคุ้มครอง')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "4c76a077-edd5-4c67-833f-5d0c06139ff2",
+      "id": "44998948-f91e-45aa-a2bb-9220afd7b01a",
       "comment": "",
       "command": "click",
       "target": "css=.MuiButton-contained > .MuiButton-label",
@@ -80,11 +61,11 @@
         ["css=.MuiButton-contained > .MuiButton-label", "css:finder"],
         ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]/a/span", "xpath:idRelative"],
         ["xpath=//a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'เพิ่มข้อมูลการทำประกัน')]", "xpath:innerText"]
+        ["xpath=//span[contains(.,'เพิ่มข้อมูลความคุ้มครอง')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "92021a2f-dad6-4c32-ab76-de986ac619c1",
+      "id": "f378d7b4-c67a-4d29-8578-0fb637cca4e5",
       "comment": "",
       "command": "click",
       "target": "name=ProtectionID",
@@ -97,14 +78,14 @@
       ],
       "value": ""
     }, {
-      "id": "46429e27-f805-4550-8850-40f3212b55be",
+      "id": "68308ad1-dae1-46b6-ad9a-f35077456bcf",
       "comment": "",
       "command": "select",
       "target": "name=ProtectionID",
       "targets": [],
-      "value": "label=ประกันชีวิต"
+      "value": "label=ประกันอุบัติเหตุ"
     }, {
-      "id": "8b01b2c4-bed7-44de-b85d-b50f1b25e821",
+      "id": "2c24e950-e97c-40fa-a16d-27d1fe736c62",
       "comment": "",
       "command": "click",
       "target": "name=TotallistID",
@@ -117,14 +98,14 @@
       ],
       "value": ""
     }, {
-      "id": "e1a53d38-6477-4885-9ee8-9101ad113cb2",
+      "id": "ed6724bc-691e-47e1-af7d-f55b5db8fbf8",
       "comment": "",
       "command": "select",
       "target": "name=TotallistID",
       "targets": [],
       "value": "label=1,000,000 ต่อปี"
     }, {
-      "id": "87b5f856-d623-4a49-9e3c-0329c4ba25dc",
+      "id": "8a8d39e6-ef93-48ef-8264-1c75a5745a57",
       "comment": "",
       "command": "click",
       "target": "name=PackageInsurID",
@@ -137,83 +118,14 @@
       ],
       "value": ""
     }, {
-      "id": "0f2e4d4f-268a-414b-96d1-785c59d6a037",
+      "id": "00283d58-b643-4f37-a2b3-bd610da563d1",
       "comment": "",
       "command": "select",
       "target": "name=PackageInsurID",
       "targets": [],
       "value": "label=แพ็คเกจ 1"
     }, {
-      "id": "c739a429-27f5-4f07-af8a-497f175e5e29",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.MuiInputAdornment-root .MuiSvgIcon-root",
-      "targets": [
-        ["css=.MuiInputAdornment-root .MuiSvgIcon-root", "css:finder"]
-      ],
-      "value": ""
-    }, {
-      "id": "7d1eb68c-06b6-4577-bf84-d8759f213883",
-      "comment": "",
-      "command": "click",
-      "target": "css=.MuiInputAdornment-root .MuiSvgIcon-root",
-      "targets": [
-        ["css=.MuiInputAdornment-root .MuiSvgIcon-root", "css:finder"]
-      ],
-      "value": ""
-    }, {
-      "id": "77e15170-6634-482d-9535-a689da4b9bac",
-      "comment": "",
-      "command": "mouseOut",
-      "target": "css=.MuiInputAdornment-root .MuiSvgIcon-root",
-      "targets": [
-        ["css=.MuiInputAdornment-root .MuiSvgIcon-root", "css:finder"]
-      ],
-      "value": ""
-    }, {
-      "id": "4354398f-bf43-4e00-9fd5-0d86663551de",
-      "comment": "",
-      "command": "click",
-      "target": "css=.MuiPickersCalendar-week:nth-child(2) > div:nth-child(4)",
-      "targets": [
-        ["css=.MuiPickersCalendar-week:nth-child(2) > div:nth-child(4)", "css:finder"],
-        ["xpath=//div[2]/div/div[2]/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "405e91eb-c0a0-4363-a6ed-a3aff66cc43d",
-      "comment": "",
-      "command": "click",
-      "target": "css=.MuiPickersClock-squareMask",
-      "targets": [
-        ["css=.MuiPickersClock-squareMask", "css:finder"],
-        ["xpath=//div[3]/div/div/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "c67eda46-d298-4c2e-8b18-62a855f153e4",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label",
-      "targets": [
-        ["css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label", "css:finder"],
-        ["xpath=//div[3]/div/div[2]/button[2]/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "eab08282-ae10-4b5e-878a-ca5cfc32b497",
-      "comment": "",
-      "command": "click",
-      "target": "css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label",
-      "targets": [
-        ["css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label", "css:finder"],
-        ["xpath=//div[3]/div/div[2]/button[2]/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "cc7ba646-9599-4b38-835f-e1cb1f9cb100",
+      "id": "086cf415-c755-4f96-b82b-75a10a325d84",
       "comment": "",
       "command": "click",
       "target": "name=Protectiontype",
@@ -226,7 +138,7 @@
       ],
       "value": ""
     }, {
-      "id": "c3caab3e-d1ac-488e-94e7-49a88a6d1c22",
+      "id": "7c2dfaef-7cac-4a1b-9d17-a8e3d04485b2",
       "comment": "",
       "command": "type",
       "target": "name=Protectiontype",
@@ -237,9 +149,9 @@
         ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
         ["xpath=//div[5]/div/div/div/input", "xpath:position"]
       ],
-      "value": "ผู้ป่วยใน"
+      "value": "ผู้ป่วย"
     }, {
-      "id": "c8394e71-3012-407a-8c0d-19bbcbaec0d9",
+      "id": "86a26613-9294-413b-a398-b581a4f5df62",
       "comment": "",
       "command": "click",
       "target": "name=Premium",
@@ -252,7 +164,19 @@
       ],
       "value": ""
     }, {
-      "id": "a7ba77db-09fb-4b89-9c00-0df8112e945d",
+      "id": "1c7f9d6f-1426-40ed-85f6-db8857d8e397",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
+        ["xpath=//div[8]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0608ed97-3673-4ca7-8a7c-0806a8420e32",
       "comment": "",
       "command": "type",
       "target": "name=Premium",
@@ -265,19 +189,7 @@
       ],
       "value": "10000"
     }, {
-      "id": "2b9420cd-75c5-4142-a48c-999de2500ab6",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
-      "targets": [
-        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
-        ["xpath=//div[8]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "165aea97-78f8-441e-974b-035b89b95dd4",
+      "id": "4fce3a9f-05b8-43b0-949a-80b724dffb71",
       "comment": "",
       "command": "click",
       "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
@@ -289,19 +201,33 @@
       ],
       "value": ""
     }, {
-      "id": "0f989ac4-1946-4eab-add0-dfa3d9f72942",
+      "id": "2330f5e9-50ad-4d2d-b704-0e53e8b768b6",
       "comment": "",
-      "command": "mouseOut",
-      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-containedPrimary",
       "targets": [
-        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div[2]/div[2]/div[8]/button/span", "xpath:idRelative"],
-        ["xpath=//div[8]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+        ["css=.MuiButton-containedPrimary", "css:finder"],
+        ["xpath=(//button[@type='button'])[5]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button", "xpath:idRelative"],
+        ["xpath=//div[8]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "d43539c5-161f-4504-8925-2ab0d907a8b0",
+      "id": "373d0c00-1958-48d5-8bb3-80dce2a38f90",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.MuiButton-containedPrimary",
+      "targets": [
+        ["css=.MuiButton-containedPrimary", "css:finder"],
+        ["xpath=(//button[@type='button'])[6]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div[2]/div[2]/div[8]/button", "xpath:idRelative"],
+        ["xpath=//div[8]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6b1ca988-c481-470a-bcf4-2a53e80fba4c",
       "comment": "",
       "command": "assertText",
       "target": "css=.MuiAlert-message",
@@ -310,51 +236,108 @@
         ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]", "xpath:idRelative"],
         ["xpath=//div/div/div[2]", "xpath:position"]
       ],
-      "value": "บันทึกข้อมูลไม่สำเร็จ: Datetime must not be in the past"
+      "value": "บันทึกข้อมูลสำเร็จ"
+    }]
+  }, {
+    "id": "9114e411-fe13-4b9b-a3f1-5afce833de77",
+    "name": "B5808724 - ตรวจสอบเวลา InsuranceConverage ต้องไม่เป็นอดีต",
+    "commands": [{
+      "id": "b71ad410-e232-48d7-89c6-1cdedbdc26a0",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
     }, {
-      "id": "7f362812-a256-4711-8120-910afceb8d58",
+      "id": "a7d4fcaa-0074-44c2-ae89-4d719f298270",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1020",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89c38b7e-b67f-4eda-a73f-c1d78c38944c",
       "comment": "",
       "command": "click",
-      "target": "css=.MuiInputAdornment-root path:nth-child(1)",
+      "target": "css=.makeStyles-a-12:nth-child(5) path",
       "targets": [
-        ["css=.MuiInputAdornment-root path:nth-child(1)", "css:finder"]
+        ["css=.makeStyles-a-12:nth-child(5) path", "css:finder"]
       ],
       "value": ""
     }, {
-      "id": "399b6835-354f-49ef-8c58-d25692006e2d",
+      "id": "0daa569c-9398-43f2-a4f6-e1c4e86b2671",
       "comment": "",
       "command": "click",
-      "target": "css=.MuiPickersCalendar-week:nth-child(2) > div:nth-child(7) .MuiTypography-root",
+      "target": "css=.MuiButton-contained > .MuiButton-label",
       "targets": [
-        ["css=.MuiPickersCalendar-week:nth-child(2) > div:nth-child(7) .MuiTypography-root", "css:finder"],
-        ["xpath=//div[2]/div[7]/button/span/p", "xpath:position"],
-        ["xpath=//p[contains(.,'12')]", "xpath:innerText"]
+        ["css=.MuiButton-contained > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'เพิ่มข้อมูลความคุ้มครอง')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "22e965a6-766c-424f-aee8-414f3069f721",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label",
-      "targets": [
-        ["css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label", "css:finder"],
-        ["xpath=//div[3]/div/div[2]/button[2]/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "581ea816-cf9f-46e7-87a2-300658ce7a38",
+      "id": "519525e8-1c53-48d4-92e1-17f1dc025a43",
       "comment": "",
       "command": "click",
-      "target": "css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label",
+      "target": "name=ProtectionID",
       "targets": [
-        ["css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label", "css:finder"],
-        ["xpath=//div[3]/div/div[2]/button[2]/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
+        ["name=ProtectionID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='ProtectionID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "50363f78-d382-4594-859f-238137b27495",
+      "id": "fab818b4-2c2b-4bff-9498-2c045ec65adc",
+      "comment": "",
+      "command": "select",
+      "target": "name=ProtectionID",
+      "targets": [],
+      "value": "label=ประกันชีวิต"
+    }, {
+      "id": "3f2197d3-abbb-4751-8085-c86ab1797212",
+      "comment": "",
+      "command": "click",
+      "target": "name=TotallistID",
+      "targets": [
+        ["name=TotallistID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='TotallistID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[2]/div/div/select", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26056ac9-15f3-4847-8c74-dfb380d8da52",
+      "comment": "",
+      "command": "select",
+      "target": "name=TotallistID",
+      "targets": [],
+      "value": "label=1,000,000 ต่อปี"
+    }, {
+      "id": "c6cbafc6-5be8-4e47-9b2b-56616cb0eeb8",
+      "comment": "",
+      "command": "click",
+      "target": "name=PackageInsurID",
+      "targets": [
+        ["name=PackageInsurID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='PackageInsurID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[3]/div/div/select", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8e22815-483d-46ba-9105-618b24efbd22",
+      "comment": "",
+      "command": "select",
+      "target": "name=PackageInsurID",
+      "targets": [],
+      "value": "label=แพ็คเกจ 2"
+    }, {
+      "id": "84519c6b-3332-45e6-aa81-9689f6cf3d80",
       "comment": "",
       "command": "click",
       "target": "name=Protectiontype",
@@ -367,32 +350,7 @@
       ],
       "value": ""
     }, {
-      "id": "4d940444-719f-4a0c-8885-857d36cf2122",
-      "comment": "",
-      "command": "click",
-      "target": "name=Protectiontype",
-      "targets": [
-        ["name=Protectiontype", "name"],
-        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
-        ["xpath=//input[@name='Protectiontype']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
-        ["xpath=//div[5]/div/div/div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "985ffa91-0eea-4548-a92b-a44b7cd83094",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
-      "targets": [
-        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
-        ["xpath=//div[8]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "c142cdc6-0b9a-4df9-aa4a-384bdaec1fed",
+      "id": "f74cbcef-14c5-4168-bfa0-a7293ee44525",
       "comment": "",
       "command": "type",
       "target": "name=Protectiontype",
@@ -403,92 +361,31 @@
         ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
         ["xpath=//div[5]/div/div/div/input", "xpath:position"]
       ],
-      "value": "ผู้"
+      "value": "ผู้ป่วย"
     }, {
-      "id": "ce06549e-265f-4dcd-bf4b-0042175a6b27",
+      "id": "2d244337-7de4-47c3-8057-1da136bbbdff",
       "comment": "",
       "command": "click",
-      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "target": "name=Premium",
       "targets": [
-        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
-        ["xpath=//div[8]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "9b54e722-59cb-4fb7-9a04-a72aee86e541",
-      "comment": "",
-      "command": "mouseOut",
-      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
-      "targets": [
-        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div[2]/div[2]/div[8]/button/span", "xpath:idRelative"],
-        ["xpath=//div[8]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "c4a66017-1a87-45f2-ac61-88cf1315a2e1",
-      "comment": "",
-      "command": "click",
-      "target": "css=.MuiAlert-message",
-      "targets": [
-        ["css=.MuiAlert-message", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]", "xpath:idRelative"],
-        ["xpath=//div/div/div[2]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "e9d6e26e-dbda-47c1-93aa-6bb4b62f7c02",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=.MuiAlert-message",
-      "targets": [
-        ["css=.MuiAlert-message", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]", "xpath:idRelative"],
-        ["xpath=//div/div/div[2]", "xpath:position"]
-      ],
-      "value": "บันทึกข้อมูลไม่สำเร็จ: Protectiontype should more than 5 charactor"
-    }, {
-      "id": "b0e270bb-e0f7-4816-9a63-2216ef69212a",
-      "comment": "",
-      "command": "click",
-      "target": "name=Protectiontype",
-      "targets": [
-        ["name=Protectiontype", "name"],
+        ["name=Premium", "name"],
         ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
-        ["xpath=//input[@name='Protectiontype']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div[2]/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
-        ["xpath=//div[5]/div/div/div/input", "xpath:position"]
+        ["xpath=//input[@name='Premium']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[6]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "61706792-e657-4f8e-b94c-295cfd838058",
+      "id": "dcac21b0-481f-4f3b-930e-ecb84dd47d59",
       "comment": "",
-      "command": "type",
-      "target": "name=Protectiontype",
+      "command": "mouseOver",
+      "target": "css=.MuiInputAdornment-root .MuiSvgIcon-root",
       "targets": [
-        ["name=Protectiontype", "name"],
-        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
-        ["xpath=//input[@name='Protectiontype']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div[2]/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
-        ["xpath=//div[5]/div/div/div/input", "xpath:position"]
-      ],
-      "value": "ผู้ป่วยใน"
-    }, {
-      "id": "8ce89d99-784c-41df-aa32-d33569179f95",
-      "comment": "",
-      "command": "click",
-      "target": "css=.makeStyles-root-30",
-      "targets": [
-        ["css=.makeStyles-root-30", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]", "xpath:position"]
+        ["css=.MuiInputAdornment-root .MuiSvgIcon-root", "css:finder"]
       ],
       "value": ""
     }, {
-      "id": "8f662ea1-7a97-4bf7-ab8d-38a77ac3a0ca",
+      "id": "09036497-276d-499e-b00f-1abab9842787",
       "comment": "",
       "command": "type",
       "target": "name=Premium",
@@ -499,21 +396,60 @@
         ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[6]/div/div/div/input", "xpath:idRelative"],
         ["xpath=//div[6]/div/div/div/input", "xpath:position"]
       ],
-      "value": "-1000"
+      "value": "10000"
     }, {
-      "id": "7c4159f6-8b8e-418f-8be3-657956208012",
+      "id": "bea139f3-3aa6-4300-9a06-78173d36e875",
       "comment": "",
-      "command": "mouseOver",
-      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "command": "click",
+      "target": "css=.MuiInputAdornment-root .MuiSvgIcon-root",
       "targets": [
-        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
-        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
-        ["xpath=//div[8]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+        ["css=.MuiInputAdornment-root .MuiSvgIcon-root", "css:finder"]
       ],
       "value": ""
     }, {
-      "id": "d744bcb0-d39a-4409-912f-ab8017d3816c",
+      "id": "73605cbf-e11e-43fa-98ca-bd302048c483",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.MuiInputAdornment-root .MuiSvgIcon-root",
+      "targets": [
+        ["css=.MuiInputAdornment-root .MuiSvgIcon-root", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "57db717f-d59f-4f35-9933-f934b0dbd67d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiPickersCalendar-week:nth-child(3) > div:nth-child(1) .MuiTypography-root",
+      "targets": [
+        ["css=.MuiPickersCalendar-week:nth-child(3) > div:nth-child(1) .MuiTypography-root", "css:finder"],
+        ["xpath=//div[3]/div/button/span/p", "xpath:position"],
+        ["xpath=//p[contains(.,'13')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbb7f668-5c25-4389-8efa-9903b3d2b8c4",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label", "css:finder"],
+        ["xpath=//div[3]/div/div[2]/button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b638a04-8bbd-485b-92ca-7a32f21192fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label", "css:finder"],
+        ["xpath=//div[3]/div/div[2]/button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6abdbe0-7541-49f3-a8b8-6145f756bada",
       "comment": "",
       "command": "click",
       "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
@@ -525,7 +461,195 @@
       ],
       "value": ""
     }, {
-      "id": "ed3c390b-69a7-4f26-9fcc-ccd3eaf4ff64",
+      "id": "4458a8e9-479f-4173-b2d6-895bb6b738f6",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.MuiAlert-message",
+      "targets": [
+        ["css=.MuiAlert-message", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]", "xpath:position"]
+      ],
+      "value": "บันทึกข้อมูลไม่สำเร็จ: Datetime must not be in the past"
+    }]
+  }, {
+    "id": "2c6f3d72-cb3e-4366-b490-8a7a7e3cb24e",
+    "name": "B5808724 - ตรวจสอบ InsuranceConverage มีค่ามากกว่า 5 ตัว",
+    "commands": [{
+      "id": "d173f12c-9f44-4a59-9852-02e552f95600",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "299a0841-c68f-4f66-a894-f92af18e167c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1020",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fb054448-421c-4c11-92f5-c0ea3b32e0c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.makeStyles-a-12:nth-child(5) .MuiSvgIcon-root",
+      "targets": [
+        ["css=.makeStyles-a-12:nth-child(5) .MuiSvgIcon-root", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "67212cb2-f624-4377-a8df-f161ab384fc9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=เพิ่มข้อมูลความคุ้มครอง",
+      "targets": [
+        ["linkText=เพิ่มข้อมูลความคุ้มครอง", "linkText"],
+        ["css=.MuiButton-contained", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/insuranceconverage/create')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'เพิ่มข้อมูลความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "69d8b6e0-8324-479a-835f-a5c377d4e203",
+      "comment": "",
+      "command": "click",
+      "target": "name=ProtectionID",
+      "targets": [
+        ["name=ProtectionID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='ProtectionID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9bddb3e9-0d83-4406-a308-04371ac01ef2",
+      "comment": "",
+      "command": "select",
+      "target": "name=ProtectionID",
+      "targets": [],
+      "value": "label=ประกันสุขภาพ"
+    }, {
+      "id": "3fc704b0-c4e3-44dd-8149-ebd782b8d070",
+      "comment": "",
+      "command": "click",
+      "target": "name=TotallistID",
+      "targets": [
+        ["name=TotallistID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='TotallistID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[2]/div/div/select", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f29e36eb-da23-4a53-88da-d07e487bb7f3",
+      "comment": "",
+      "command": "select",
+      "target": "name=TotallistID",
+      "targets": [],
+      "value": "label=1,000,000 ต่อปี"
+    }, {
+      "id": "37e293fc-b83e-4f53-a1dd-630d33b00e28",
+      "comment": "",
+      "command": "click",
+      "target": "name=PackageInsurID",
+      "targets": [
+        ["name=PackageInsurID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='PackageInsurID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[3]/div/div/select", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7275ceb-784a-402c-a44a-80673e12192d",
+      "comment": "",
+      "command": "select",
+      "target": "name=PackageInsurID",
+      "targets": [],
+      "value": "label=แพ็คเกจ 2"
+    }, {
+      "id": "5e1a1cbe-c9d4-4c4f-bae1-b4b8e1edb06f",
+      "comment": "",
+      "command": "click",
+      "target": "name=Protectiontype",
+      "targets": [
+        ["name=Protectiontype", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Protectiontype']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba328a71-b525-49ab-b2fd-bfb3e9e3403d",
+      "comment": "",
+      "command": "type",
+      "target": "name=Protectiontype",
+      "targets": [
+        ["name=Protectiontype", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Protectiontype']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "46b492a5-c139-40d9-9ee9-4edb8e5675a0",
+      "comment": "",
+      "command": "click",
+      "target": "name=Premium",
+      "targets": [
+        ["name=Premium", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Premium']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[6]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "223fce6d-1c24-4d76-9211-52c381c324ff",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
+        ["xpath=//div[8]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "08e8624a-4502-4acc-8937-c1ffb55e25e4",
+      "comment": "",
+      "command": "type",
+      "target": "name=Premium",
+      "targets": [
+        ["name=Premium", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Premium']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[6]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "a6cb6c2b-a231-4ae8-bfb4-e5f43eccc56e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
+        ["xpath=//div[8]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3deffc03-a7a1-4bfe-b39d-b9c0040f84dc",
       "comment": "",
       "command": "mouseOut",
       "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
@@ -537,7 +661,228 @@
       ],
       "value": ""
     }, {
-      "id": "4cd3111c-41be-4109-b350-ea4489b6bbb9",
+      "id": "d15d2541-2ce0-480e-8c16-11e2b5bcdcc4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiAlert-message",
+      "targets": [
+        ["css=.MuiAlert-message", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f2292db-6244-4c7b-9ef6-f00bdeabc46f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.MuiAlert-message",
+      "targets": [
+        ["css=.MuiAlert-message", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]", "xpath:position"]
+      ],
+      "value": "บันทึกข้อมูลไม่สำเร็จ: Protectiontype should more than 5 charactor"
+    }]
+  }, {
+    "id": "26814893-a1c7-4412-a1f4-d79f5c71add6",
+    "name": "B5808724 - ตรวจสอบ InsuranceConverage ต้องมีค่ามากกว่า 0",
+    "commands": [{
+      "id": "1febe2e7-d979-4365-9d5b-f30665d0cf30",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01c7c2dc-a67d-4e78-9fc8-576f3c595dc3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1020",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4db608ee-65fd-4f3e-a4e1-1c80c1c9de46",
+      "comment": "",
+      "command": "click",
+      "target": "css=.makeStyles-a-12:nth-child(5) .MuiSvgIcon-root",
+      "targets": [
+        ["css=.makeStyles-a-12:nth-child(5) .MuiSvgIcon-root", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "95228cee-57bb-46c8-b2cc-367cab61aaa3",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-contained > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-contained > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'เพิ่มข้อมูลความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae83899b-4f15-483a-957a-35ebfafe38d4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-contained > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-contained > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div/div[2]/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'เพิ่มข้อมูลความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3da38c16-ded1-4c44-921f-ea68dc05dc6b",
+      "comment": "",
+      "command": "click",
+      "target": "name=ProtectionID",
+      "targets": [
+        ["name=ProtectionID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='ProtectionID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a928d6a5-d540-4abc-a9ac-69ac26b0b70c",
+      "comment": "",
+      "command": "select",
+      "target": "name=ProtectionID",
+      "targets": [],
+      "value": "label=ประกันอุบัติเหตุ"
+    }, {
+      "id": "1ceeee86-6f5c-4b2d-87a0-726c6002b2bc",
+      "comment": "",
+      "command": "click",
+      "target": "name=TotallistID",
+      "targets": [
+        ["name=TotallistID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='TotallistID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[2]/div/div/select", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "619ee9dc-e1cc-466f-83a4-3b653ee719e7",
+      "comment": "",
+      "command": "select",
+      "target": "name=TotallistID",
+      "targets": [],
+      "value": "label=1,000,000 ต่อปี"
+    }, {
+      "id": "99dcedfc-1888-4a05-a225-7718222aa021",
+      "comment": "",
+      "command": "click",
+      "target": "name=PackageInsurID",
+      "targets": [
+        ["name=PackageInsurID", "name"],
+        ["css=.Mui-focused > .MuiSelect-root", "css:finder"],
+        ["xpath=//select[@name='PackageInsurID']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[3]/div/div/select", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66cf8dc3-795b-4190-9e47-03c0f3e30e83",
+      "comment": "",
+      "command": "select",
+      "target": "name=PackageInsurID",
+      "targets": [],
+      "value": "label=แพ็คเกจ 1"
+    }, {
+      "id": "28510d7a-33a2-4e02-a035-46c7d4872843",
+      "comment": "",
+      "command": "click",
+      "target": "name=Protectiontype",
+      "targets": [
+        ["name=Protectiontype", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Protectiontype']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d77f2e0-d6c0-48d6-987e-44e02c15f20a",
+      "comment": "",
+      "command": "type",
+      "target": "name=Protectiontype",
+      "targets": [
+        ["name=Protectiontype", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Protectiontype']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[5]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "ผู้ป่วย"
+    }, {
+      "id": "ff20785d-4dab-4b7e-a627-5f3d044eeaa3",
+      "comment": "",
+      "command": "click",
+      "target": "name=Premium",
+      "targets": [
+        ["name=Premium", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Premium']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[6]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6560487a-8ce2-4918-a275-7e13c077dfa1",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
+        ["xpath=//div[8]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a71e8bed-2b46-4582-a07f-a9f9360608b2",
+      "comment": "",
+      "command": "type",
+      "target": "name=Premium",
+      "targets": [
+        ["name=Premium", "name"],
+        ["css=.Mui-focused > .MuiInputBase-input", "css:finder"],
+        ["xpath=//input[@name='Premium']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[6]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "-10000"
+    }, {
+      "id": "a2770b55-df9d-42c3-b112-08e547ac3e7e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div/div[2]/div[8]/button/span", "xpath:idRelative"],
+        ["xpath=//div[8]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9146471-355f-4ae4-851b-93d7652aa78d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.MuiButton-containedPrimary > .MuiButton-label",
+      "targets": [
+        ["css=.MuiButton-containedPrimary > .MuiButton-label", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div[2]/div/div[2]/div[2]/div[8]/button/span", "xpath:idRelative"],
+        ["xpath=//div[8]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'บันทึกความคุ้มครอง')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e44fa58-2e26-45db-a5d9-21641d383549",
       "comment": "",
       "command": "assertText",
       "target": "css=.MuiAlert-message",
@@ -547,22 +892,15 @@
         ["xpath=//div/div/div[2]", "xpath:position"]
       ],
       "value": "บันทึกข้อมูลไม่สำเร็จ: Premium cannot be negative or 0"
-    }, {
-      "id": "eb582eb0-4847-4ce8-bf32-f4405f17af88",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
     }]
   }],
   "suites": [{
-    "id": "7638bc29-f5ab-4eb9-a5f4-9852b4969cd7",
+    "id": "b35c7ac9-e8f6-474a-86ca-18f85793966f",
     "name": "Default Suite",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["28cee80d-83ea-4662-97a1-147ecce16609"]
+    "tests": []
   }],
   "urls": ["http://localhost:3000/"],
   "plugins": []

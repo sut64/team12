@@ -648,17 +648,6 @@
       ],
       "value": ""
     }, {
-      "id": "9dce996c-e91f-443e-91b5-6b199cf6bbe9",
-      "comment": "",
-      "command": "mouseOut",
-      "target": "css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label",
-      "targets": [
-        ["css=.MuiButton-textPrimary:nth-child(2) > .MuiButton-label", "css:finder"],
-        ["xpath=//div[3]/div/div[2]/button[2]/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
       "id": "88d8493b-8f12-42b3-a73f-796cbe90aefd",
       "comment": "",
       "command": "click",
