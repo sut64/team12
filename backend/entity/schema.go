@@ -158,6 +158,9 @@ type InsuranceClaim struct {
 
 	MotiveID *uint
 	Motive   Motive `gorm:"references:id" valid:"-"`
+
+	CustomerID *uint
+	Customer   Customer `gorm:"references:id" valid:"-"`
 }
 
 type InsuranceConverage struct {

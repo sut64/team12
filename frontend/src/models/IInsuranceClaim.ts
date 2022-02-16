@@ -1,5 +1,6 @@
 import { MotivesInterface } from "./IMotive";
 import { EmployeesInterface } from "./IEmployee";
+import { CustomersInterface } from "./ICustomer";
 
 export interface InsuranceClaimInterface {
     ID: number,
@@ -12,5 +13,8 @@ export interface InsuranceClaimInterface {
     Insdate: Date,
     Compensation: number,
     Patient: string,
+
+    CustomerID: number,
+    Customer: CustomersInterface,
 
 }    

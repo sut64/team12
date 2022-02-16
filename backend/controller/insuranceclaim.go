@@ -12,6 +12,7 @@ func CreateInsuranceClaim(c *gin.Context) {
 	var insuranceclaims entity.InsuranceClaim
 	var motives entity.Motive
 	var employee entity.Employee
+	var customer entity.Customer
 
 	if err := c.ShouldBindJSON(&insuranceclaims); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -27,10 +28,15 @@ func CreateInsuranceClaim(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "employee not found"})
 		return
 	}
+	if tx := entity.DB().Where("id = ?", insuranceclaims.CustomerID).First(&customer); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "member not found"})
+		return
+	}
 
 	ic := entity.InsuranceClaim{
 		Patient:      insuranceclaims.Patient,
 		Employee:     employee,
+		Customer:     customer,
 		Compensation: insuranceclaims.Compensation,
 		Insdate:      insuranceclaims.Insdate,
 		Motive:       motives,
@@ -50,7 +56,7 @@ func CreateInsuranceClaim(c *gin.Context) {
 func GetInsuranceClaim(c *gin.Context) {
 	var insuranceclaims entity.InsuranceClaim
 	id := c.Param("id")
-	if err := entity.DB().Preload("Employee").Preload("Motive").Raw("SELECT * FROM insurance_claims WHERE id = ?", id).Find(&insuranceclaims).Error; err != nil {
+	if err := entity.DB().Preload("Employee").Preload("Motive").Preload("Customer").Raw("SELECT * FROM insurance_claims WHERE id = ?", id).Find(&insuranceclaims).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -60,7 +66,7 @@ func GetInsuranceClaim(c *gin.Context) {
 // GET /insuranceconverages
 func ListInsuranceClaims(c *gin.Context) {
 	var insuranceclaims []entity.InsuranceClaim
-	if err := entity.DB().Preload("Employee").Preload("Motive").Raw("SELECT * FROM insurance_claims").Find(&insuranceclaims).Error; err != nil {
+	if err := entity.DB().Preload("Employee").Preload("Motive").Preload("Customer").Raw("SELECT * FROM insurance_claims").Find(&insuranceclaims).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
