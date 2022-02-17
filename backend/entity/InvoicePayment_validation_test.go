@@ -73,6 +73,7 @@ func TestPaymentAmountMustPositive(t *testing.T) {
 	// err.Error ต้องมี error message แสดงออกมา
 	g.Expect(err.Error()).To(Equal("PaymentAmount must be positive"))
 }
+
 func TestInvoicePaymentPass(t *testing.T) {
 	g := NewGomegaWithT(t)
 
