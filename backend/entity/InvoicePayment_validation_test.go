@@ -38,6 +38,7 @@ func TestInvoiceNumberMustBeInValidPattern(t *testing.T) {
 		InvoiceNumber: "i1234", //ผิด
 		PaymentAmount: 123,
 	}
+
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(ip)
 
@@ -59,6 +60,7 @@ func TestPaymentAmountMustPositive(t *testing.T) {
 		InvoiceNumber: "i123",
 		PaymentAmount: -123, //ผิด
 	}
+
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(ip)
 
@@ -79,6 +81,7 @@ func TestInvoicePaymentPass(t *testing.T) {
 		InvoiceNumber: "i123",
 		PaymentAmount: 123,
 	}
+
 	// ตรวจสอบด้วย govalidator
 	ok, err := govalidator.ValidateStruct(ip)
 
