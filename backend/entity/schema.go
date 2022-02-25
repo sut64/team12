@@ -20,6 +20,7 @@ type Customer struct {
 	InvoicePayments []InvoicePayment `gorm:"foreignKey:CustomerID"`
 	Buyinsurance    []Buyinsurance   `gorm:"foreignKey:CustomerID"`
 	Paybacks        []Payback        `gorm:"foreignKey:CustomerID"`
+	InsuranceClaim  []InsuranceClaim `gorm:"foreignKey:CustomerID"`
 }
 type Status struct {
 	gorm.Model
@@ -70,7 +71,7 @@ type InvoicePayment struct {
 type Hospitalnet struct {
 	gorm.Model
 	Name     string
-	Contract int   `valid:"IsPositive~Contract should more than 0"`
+	Contract int       `valid:"IsPositive~Contract should more than 0"`
 	Address  string    `valid:"minstringlength(5)~Adddress should more than 4 charactor"`
 	Adddate  time.Time `valid:"notpast~Date cannot be past"`
 
