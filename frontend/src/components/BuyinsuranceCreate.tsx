@@ -236,7 +236,7 @@ function BuyinsuranceCreate() {
                 </option>
                 {InsuranceConverages.map((item: InsuranceConverageInterface) => (
                   <option value={item.ID} key={item.ID}>
-                    {item.Protection.Protection_name}
+                    {item.Protection.Protection_name},{item.Protectiontype}
                   </option>
                 ))}
               </Select>
