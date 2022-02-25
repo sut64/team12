@@ -131,6 +131,7 @@ type Protection struct {
 	gorm.Model
 	Protection_name    string
 	InsuranceConverage []InsuranceConverage `gorm:"foreignKey:ProtectionID"`
+	Payback            []Payback            `gorm:"foreignKey:ProtectionID"`
 }
 type PackageInsur struct {
 	gorm.Model
@@ -180,6 +181,8 @@ type InsuranceConverage struct {
 
 	TotallistID *uint
 	Totallist   Totallist `gorm:"references:id"`
+
+	Buyinsurance []Buyinsurance `gorm:"foreignKey:InsuranceConverageID"`
 }
 
 func init() {
