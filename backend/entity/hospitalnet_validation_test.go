@@ -9,14 +9,14 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestHospitalContractIsPositive(t *testing.T) {
+func TestHospitalContractCannotbenegative(t *testing.T) {
 	g := NewGomegaWithT(t)
 
 	hospitalnet := Hospitalnet{
 		Name:     "ThaiHospital",
-		Contract: -5, //ผิด
-		Address:  "AAAAA",
-		Adddate:  time.Now(),
+		Contract: -5,//ผิด
+		Address:  "AABBC",
+		Adddate:  time.Now(), 
 	}
 
 	ok, err := govalidator.ValidateStruct(hospitalnet)
@@ -25,7 +25,7 @@ func TestHospitalContractIsPositive(t *testing.T) {
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Contract cannot be negative or 0"))
+	g.Expect(err.Error()).To(Equal("Contract should more than 0"))
 }
 
 func TestHospitalAddressMustbeInValidPattern(t *testing.T) {
@@ -44,7 +44,7 @@ func TestHospitalAddressMustbeInValidPattern(t *testing.T) {
 
 	g.Expect(err).ToNot(BeNil())
 
-	g.Expect(err.Error()).To(Equal("Adddress should more than 5 charactor"))
+	g.Expect(err.Error()).To(Equal("Adddress should more than 4 charactor"))
 }
 
 func TestHospitalAdddateMustBeNotPast(t *testing.T) {

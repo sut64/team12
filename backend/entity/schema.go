@@ -70,8 +70,8 @@ type InvoicePayment struct {
 type Hospitalnet struct {
 	gorm.Model
 	Name     string
-	Contract int       `valid:"IsPositive~Contract cannot be negative or 0"`
-	Address  string    `valid:"minstringlength(5)~Adddress should more than 5 charactor"`
+	Contract int   `valid:"IsPositive~Contract should more than 0"`
+	Address  string    `valid:"minstringlength(5)~Adddress should more than 4 charactor"`
 	Adddate  time.Time `valid:"notpast~Date cannot be past"`
 
 	EmployeeID *uint
@@ -191,6 +191,7 @@ func init() {
 		// ย้อนหลังไม่เกิน 1 วัน
 		return t.After(time.Now().AddDate(0, 0, -1))
 	})
+
 	govalidator.CustomTypeTagMap.Set("notpast",
 		func(i interface{}, context interface{}) bool {
 			t := i.(time.Time)
